@@ -16,12 +16,18 @@ int main() {
     std::vector<int> nums(n);
     std::cout << "Enter " << n << " integers: ";
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        if (!(std::cin >> nums[i])) {
+            std::cerr << "Invalid input for array element." << std::endl;
+            return 1;
+        }
     }
 
     int target;
     std::cout << "Enter the target sum: ";
-    std::cin >> target;
+    if (!(std::cin >> target)) {
+        std::cerr << "Invalid input for target." << std::endl;
+        return 1;
+    }
 
     // Call the two sum functions
     std::vector<int> resultArray = twoSumArray(nums, target);
