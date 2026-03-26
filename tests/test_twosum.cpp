@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include "TwoSumArray.h"
-#include "TwoSumHashTable.h"
+#include "src/TwoSumArray.h"
+#include "src/TwoSumHashTable.h"
 
 void checkTestCase(const std::string& name, const std::vector<int>& nums, int target, const std::vector<int>& expected) {
     std::cout << "[TEST] " << name << " ... ";
