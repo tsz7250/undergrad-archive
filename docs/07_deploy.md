@@ -9,7 +9,7 @@
 - **環境需求**：支援 C++ 20 標準的編譯器 (推薦 `g++` 10.0 以上版本)。
 - **建置指令**：
   ```bash
-  g++ -std=c++20 main.cpp TwoSumArray.cpp TwoSumHashTable.cpp -o solution
+  g++ -std=c++20 -Isrc src/main.cpp src/TwoSumArray.cpp src/TwoSumHashTable.cpp -o solution
   ```
 - **執行指令**：
   ```bash
