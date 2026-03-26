@@ -4,7 +4,7 @@
 
 | 需求 ID (SRS) | 需求簡述 | 對應設計模組 (SDS) | 對應測試案例 (Test Plan) | 備註說明 |
 | :--- | :--- | :--- | :--- | :--- |
-| **FR-01** | 基本運算（找尋總和） | `TwoSumArray`, `TwoSumHashTable` | 案例 1 (一般情況) | 在 `main.cpp` 中以 Assertions 驗證。 |
+| **FR-01** | 基本運算（找尋總和） | `TwoSumArray`, `TwoSumHashTable` | 案例 1 (一般情況) | 由 `tests/test_twosum.cpp` 單元測試案例驗證。 |
 | **FR-02** | 邊界處理（負數、重複值） | `TwoSumArray`, `TwoSumHashTable` | 案例 2, 3 (負數與重複數值) | |
 | **FR-03** | 無解處理 | `TwoSumArray`, `TwoSumHashTable` | 案例 4 (無解) | 回傳應為空陣列。 |
 | **FR-04** | 雙重實作演算法 | 架構概述 (兩種方法) | 驗收準則一 (保證一致性) | 驗證兩者針對相同輸入結果必定相同。 |
