@@ -23,6 +23,6 @@
 
 ## 3. 自動化測試腳本 (Automation)
 本專案的測試將透過 GitHub Actions 自動執行。每次觸發 `Push` 或 `Pull Request` 時，系統會：
-1. 編譯專案：`g++ -std=c++20 main.cpp TwoSumArray.cpp TwoSumHashTable.cpp -o solution`
+1. 編譯專案：`g++ -std=c++20 -Isrc src/main.cpp src/TwoSumArray.cpp src/TwoSumHashTable.cpp -o solution`
 2. 執行二進位檔：`./solution`
 3. 判定結果：若輸出狀態碼為 `0` 表示所有 Assertions 測試通過；若為其他值，CI 的該次 Build 則會標示為失敗 (Failed)。
