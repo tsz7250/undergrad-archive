@@ -2,7 +2,7 @@
 
 ## 1. 架構概述 (Architecture Overview)
 鑑於本專案為單一的演算法實作，系統架構將直接對應到各個模組檔案上。
-主程式 `main.cpp` 負責引入其他模組並執行自動化測試斷言 (Assertions)；而核心演算法則分別獨立於不同的 `.cpp` 與對應的標頭檔 (`.h`) 中。
+互動式示範程式入口為 `src/main.cpp`，主要負責引入其他模組並提供使用者介面；自動化測試與斷言 (Assertions) 則由測試程式 `tests/test_twosum.cpp` 負責執行，而核心演算法則分別獨立於不同的 `.cpp` 與對應的標頭檔 (`.h`) 中。
 
 ## 2. 演算法模組設計 (Algorithm Module Design)
 
