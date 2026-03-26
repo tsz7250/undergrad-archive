@@ -4,8 +4,8 @@
 
 ## 1. 驗收準則一：演算法雙重驗證 (Algorithm Cross-Validation)
 - **目的**：確認教育用途中對不同策略正確性的展示。
-- **操作步驟**：執行編譯後的主應用程式。
-- **通過條件**：對於所有定義的測試案例，`TwoSumArray()` ($O(n \log n)$) 與 `TwoSumHashTable()` ($O(n)$) 兩種演算法的輸出結果必須**完全一致**。
+- **操作步驟**：執行由 `tests/test_twosum.cpp` 編譯出的測試執行檔（例如 `./build/tests/test_twosum`）。
+- **通過條件**：對於該測試程式中定義的所有測試案例，`TwoSumArray()` ($O(n \log n)$) 與 `TwoSumHashTable()` ($O(n)$) 兩種演算法的輸出結果必須**完全一致**。
 
 ## 2. 驗收準則二：持續整合驗證 (Continuous Integration Validation)
 - **目的**：確認專案在設定 CI/CD 流程後，能夠作為自動化驗證的參考範例。
