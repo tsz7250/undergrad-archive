@@ -5,28 +5,11 @@
 下述為本專案的兩種標準建置與執行模式：
 
 ## 1. 本機原始碼編譯執行 (Local Execution)
-開發者可直接於本地端編譯並執行自動化斷言測試。
+開發者可直接於本地端編譯並執行自動化斷言測試 (以 `tests/test_twosum.cpp` 為測試入口)。
 - **環境需求**：支援 C++ 20 標準的編譯器 (推薦 `g++` 10.0 以上版本)。
 - **建置指令**：
   ```bash
-  g++ -std=c++20 -Isrc src/main.cpp src/TwoSumArray.cpp src/TwoSumHashTable.cpp -o solution
-  ```
-- **執行指令**：
-  ```bash
-  ./solution
-  ```
-- **預期結果**：程式安靜退出 (Exit code 0)，代表所有內建測試案例皆通過。
-
-## 2. 容器化封裝與運行 (Docker Containerization)
-為了消除作業系統與編譯器版本的差異，本專案提供 `Dockerfile` 進行環境封裝。
-- **環境需求**：必須安裝 Docker Engine。
-- **建置 Docker 映像檔**：
-  此步驟不僅會封裝代碼，也會在容器內部環境進行 `g++` 編譯。
-  ```bash
-  docker build -t twosum-solution .
-  ```
-- **執行測試容器**：
-  執行已編譯完成的映像檔，立即得出測試運行結果。
+  g++ -std=c++20 tests/test_twosum.cpp TwoSumArray.cpp TwoSumHashTable.cpp -o tests/test_twosum
   ```bash
   docker run twosum-solution
   ```
