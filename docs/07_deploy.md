@@ -11,5 +11,5 @@
   ```bash
   g++ -std=c++20 -Isrc tests/test_twosum.cpp src/TwoSumArray.cpp src/TwoSumHashTable.cpp -o tests/test_twosum
 ## 3. 持續整合自動化部署 (CI Deployment Automation)
-- 本專案已將上述編譯與執行流程，寫入 `.github/workflows/test.yml`。
+- 本專案已將上述編譯與執行流程，寫入 `.github/workflows/ci.yml`。
 - 任何推送到 `main` 分支的動作皆為一次「發布」，GitHub Actions 會自動配置 `ubuntu-latest` 環境建置並運行上述測試，確保主分支永遠處於完全可用狀態。
