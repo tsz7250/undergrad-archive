@@ -37,8 +37,8 @@ TEST_F(StorageLayerTest, GetRowByID) {
     const Row* retrieved = storage.getRow(id);
     ASSERT_NE(retrieved, nullptr);
     EXPECT_EQ(retrieved->id, id);
-    EXPECT_EQ(retrieved->values["Name"], "Alice");
-    EXPECT_EQ(retrieved->values["Age"], "20");
+    EXPECT_EQ(retrieved->values.at("Name"), "Alice");
+    EXPECT_EQ(retrieved->values.at("Age"), "20");
 }
 
 // UT-02: Get all rows

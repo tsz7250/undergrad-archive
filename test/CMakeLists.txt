@@ -17,6 +17,11 @@ set(TEST_SOURCES
     test_query_parser.cpp
     test_execution_engine.cpp
     test_type_inference.cpp
+    ../src/csv_parser.cpp
+    ../src/storage.cpp
+    ../src/hash_index.cpp
+    ../src/query_parser.cpp
+    ../src/execution_engine.cpp
 )
 
 # Create test executable
@@ -27,7 +32,7 @@ target_link_libraries(csv_db_tests
     PRIVATE 
     GTest::gtest 
     GTest::gtest_main
-    csv  # csv-parser library
+    unofficial::vincentlaucsb-csv-parser::csv  # csv-parser library
 )
 
 # Register tests with ctest

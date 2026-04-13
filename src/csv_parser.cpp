@@ -22,8 +22,8 @@ CSVParser::parseFile(const std::string& file_path) {
     // Read header line
     if (!std::getline(file, line)) {
         if (file.eof()) {
-            // Empty file
-            return rows;
+            // Empty file - throw exception
+            throw std::runtime_error("Empty CSV file: " + file_path);
         }
         throw std::runtime_error("Failed to read header from file: " + file_path);
     }

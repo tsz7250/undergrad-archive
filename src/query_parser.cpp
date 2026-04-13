@@ -59,7 +59,7 @@ void QueryParser::tokenize(const std::string& query_str) {
                 current.clear();
             }
             tokens_.push_back(std::string(1, c));
-        } else if (c == '=' || c == '<' || c == '>') {
+        } else if (c == '=' || c == '<' || c == '>' || c == '!') {
             if (!current.empty()) {
                 tokens_.push_back(current);
                 current.clear();

@@ -4,11 +4,11 @@ project(CSVMiniDB LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# vcpkg toolchain integration (optional, for documentation)
-# set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+# vcpkg toolchain integration
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 
 # Find csv-parser
-find_package(csv-parser CONFIG REQUIRED)
+find_package(unofficial-vincentlaucsb-csv-parser CONFIG REQUIRED)
 
 # Include directory for all targets
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -24,8 +24,7 @@ add_executable(csv_mini_db
 )
 
 # Link csv-parser to main executable
-# target_link_libraries(csv_mini_db PRIVATE csv::csv)
-target_link_libraries(csv_mini_db PRIVATE csv)
+target_link_libraries(csv_mini_db PRIVATE unofficial::vincentlaucsb-csv-parser::csv)
 
 # Add tests subdirectory
 add_subdirectory(test)
