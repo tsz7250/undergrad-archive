@@ -1,0 +1,9 @@
+{
+  "name": "csv-mini-db",
+  "version-string": "0.1.0",
+  "description": "A lightweight CSV mini database and query engine.",
+  "dependencies": [
+    "csv-parser",
+    "gtest"
+  ]
+}
