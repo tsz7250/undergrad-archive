@@ -34,8 +34,8 @@ graph TD
 
 ### 查詢範例
 - **基本查詢**: `SELECT * FROM students WHERE ID = '123'`
-- **複合查詢**: `SELECT Name, Age WHERE Grade = 'A' AND Age < '20'`
-- **多重條件**: `SELECT * WHERE City = 'Taipei' OR City = 'Hsinchu'`
+- **複合查詢**: `SELECT Name, Age FROM students WHERE Grade = 'A' AND Age < '20'`
+- **多重條件**: `SELECT * FROM students WHERE City = 'Taipei' OR City = 'Hsinchu'`
 
 > [!TIP]
 > 系統會優先利用 Hash Index 縮小搜尋範圍，複合條件下會進行集合運算 (Intersection/Union) 以保證極致的查詢速度。
