@@ -10,15 +10,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find csv-parser
 find_package(csv-parser CONFIG REQUIRED)
 
-add_executable(csv_mini_db src/main.cpp)
+# Include directory for all targets
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# Link csv-parser
+# Main executable
+add_executable(csv_mini_db 
+    src/main.cpp
+    src/csv_parser.cpp
+    src/storage.cpp
+    src/hash_index.cpp
+    src/query_parser.cpp
+    src/execution_engine.cpp
+)
+
+# Link csv-parser to main executable
 # target_link_libraries(csv_mini_db PRIVATE csv::csv)
 target_link_libraries(csv_mini_db PRIVATE csv)
 
-# GoogleTest (for未來測試)
-# enable_testing()
-# find_package(GTest CONFIG REQUIRED)
-# add_executable(tests test/test_main.cpp)
-# target_link_libraries(tests PRIVATE GTest::gtest_main)
-# add_test(NAME AllTests COMMAND tests)
+# Add tests subdirectory
+add_subdirectory(test)
