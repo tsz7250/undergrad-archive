@@ -33,20 +33,16 @@ jobs:
       - name: Setup vcpkg (Ubuntu)
         if: runner.os == 'Linux'
         run: |
-          git clone https://github.com/Microsoft/vcpkg.git vcpkg
+          git clone --depth 1 https://github.com/microsoft/vcpkg.git vcpkg
           cd vcpkg
-          # Pin to a known vcpkg version for reproducibility
-          git checkout 3bacfaaa6ac76a92e5e0f9b35f9c4f0afc1e7abc
           ./bootstrap-vcpkg.sh
 
       - name: Setup vcpkg (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          git clone https://github.com/Microsoft/vcpkg.git vcpkg
+          git clone --depth 1 https://github.com/microsoft/vcpkg.git vcpkg
           cd vcpkg
-          # Pin to a known vcpkg version for reproducibility
-          git checkout 3bacfaaa6ac76a92e5e0f9b35f9c4f0afc1e7abc
           .\bootstrap-vcpkg.bat
 
       - name: Cache vcpkg packages
@@ -117,10 +113,8 @@ jobs:
 
       - name: Setup vcpkg
         run: |
-          git clone https://github.com/Microsoft/vcpkg.git vcpkg
+          git clone --depth 1 https://github.com/microsoft/vcpkg.git vcpkg
           cd vcpkg
-          # Pin to a known vcpkg version for reproducibility
-          git checkout 3bacfaaa6ac76a92e5e0f9b35f9c4f0afc1e7abc
           ./bootstrap-vcpkg.sh
           ./vcpkg install --triplet=x64-linux
 
