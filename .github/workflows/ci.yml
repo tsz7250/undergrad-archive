@@ -17,12 +17,8 @@ jobs:
         include:
           - os: ubuntu-latest
             cmake-generator: "Unix Makefiles"
-            cc: gcc
-            cxx: g++
           - os: windows-latest
             cmake-generator: "Visual Studio 17 2022"
-            cc: cl
-            cxx: cl
     
     steps:
       - name: Checkout code
@@ -38,17 +34,23 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           git clone https://github.com/Microsoft/vcpkg.git vcpkg
-          ./vcpkg/bootstrap-vcpkg.sh
+          cd vcpkg
+          # Pin to a known vcpkg version for reproducibility
+          git checkout 3bacfaaa6ac76a92e5e0f9b35f9c4f0afc1e7abc
+          ./bootstrap-vcpkg.sh
 
       - name: Setup vcpkg (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
           git clone https://github.com/Microsoft/vcpkg.git vcpkg
-          .\vcpkg\bootstrap-vcpkg.bat
+          cd vcpkg
+          # Pin to a known vcpkg version for reproducibility
+          git checkout 3bacfaaa6ac76a92e5e0f9b35f9c4f0afc1e7abc
+          .\bootstrap-vcpkg.bat
 
       - name: Cache vcpkg packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: vcpkg/installed
           key: vcpkg-${{ runner.os }}-${{ hashFiles('vcpkg.json') }}
@@ -70,9 +72,20 @@ jobs:
         run: |
           cmake -B build \
             -G "${{ matrix.cmake-generator }}" \
-            -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake \
+            -DCMAKE_TOOLCHAIN_FILE="${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" \
             -DCMAKE_BUILD_TYPE=Release
         shell: bash
+        if: runner.os == 'Linux'
+
+      - name: Configure CMake (Windows)
+        run: |
+          $toolchain = Join-Path -Path ${{ github.workspace }} -ChildPath "vcpkg\scripts\buildsystems\vcpkg.cmake"
+          cmake -B build `
+            -G "${{ matrix.cmake-generator }}" `
+            -DCMAKE_TOOLCHAIN_FILE="$toolchain" `
+            -DCMAKE_BUILD_TYPE=Release
+        shell: pwsh
+        if: runner.os == 'Windows'
 
       - name: Build
         run: |
@@ -105,21 +118,25 @@ jobs:
       - name: Setup vcpkg
         run: |
           git clone https://github.com/Microsoft/vcpkg.git vcpkg
-          ./vcpkg/bootstrap-vcpkg.sh
-          ./vcpkg/vcpkg install --triplet=x64-linux
+          cd vcpkg
+          # Pin to a known vcpkg version for reproducibility
+          git checkout 3bacfaaa6ac76a92e5e0f9b35f9c4f0afc1e7abc
+          ./bootstrap-vcpkg.sh
+          ./vcpkg install --triplet=x64-linux
 
       - name: Configure CMake for linting
         run: |
           cmake -B build \
             -G "Unix Makefiles" \
-            -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake \
+            -DCMAKE_TOOLCHAIN_FILE="${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake" \
             -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
             -DCMAKE_BUILD_TYPE=Release
 
-      - name: Run clang-tidy on source files
-        continue-on-error: true
+      - name: Run clang-tidy on all source files
         run: |
-          clang-tidy -p build src/csv_parser.cpp src/storage.cpp src/hash_index.cpp src/query_parser.cpp src/execution_engine.cpp
+          # Run clang-tidy on all source files; report issues but allow workflow to continue for now
+          # To enforce as a gate, set continue-on-error: false or use exit code checking
+          find src -name '*.cpp' -type f | xargs clang-tidy -p build --header-filter=".*" || true
 
       - name: Verify documentation files exist
         run: |
