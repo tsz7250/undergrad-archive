@@ -1,0 +1,150 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: Build & Test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            cmake-generator: "Unix Makefiles"
+            cc: gcc
+            cxx: g++
+          - os: windows-latest
+            cmake-generator: "Visual Studio 17 2022"
+            cc: cl
+            cxx: cl
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential pkg-config
+
+      - name: Setup vcpkg (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          git clone https://github.com/Microsoft/vcpkg.git vcpkg
+          ./vcpkg/bootstrap-vcpkg.sh
+
+      - name: Setup vcpkg (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          git clone https://github.com/Microsoft/vcpkg.git vcpkg
+          .\vcpkg\bootstrap-vcpkg.bat
+
+      - name: Cache vcpkg packages
+        uses: actions/cache@v3
+        with:
+          path: vcpkg/installed
+          key: vcpkg-${{ runner.os }}-${{ hashFiles('vcpkg.json') }}
+          restore-keys: vcpkg-${{ runner.os }}-
+
+      - name: Install vcpkg dependencies
+        run: |
+          ./vcpkg/vcpkg install --triplet=${{ runner.os == 'Linux' && 'x64-linux' || 'x64-windows' }}
+        shell: bash
+        if: runner.os == 'Linux'
+
+      - name: Install vcpkg dependencies (Windows)
+        shell: pwsh
+        run: |
+          .\vcpkg\vcpkg install --triplet=x64-windows
+        if: runner.os == 'Windows'
+
+      - name: Configure CMake
+        run: |
+          cmake -B build \
+            -G "${{ matrix.cmake-generator }}" \
+            -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake \
+            -DCMAKE_BUILD_TYPE=Release
+        shell: bash
+
+      - name: Build
+        run: |
+          cmake --build build --config Release --parallel 4
+        shell: bash
+
+      - name: Run Tests
+        run: |
+          cd build
+          ctest --output-on-failure --build-config Release
+        shell: bash
+
+  quality-checks:
+    name: Code Quality & Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install clang-tidy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-tidy clang
+
+      - name: Install CMake dependencies
+        run: |
+          sudo apt-get install -y cmake build-essential pkg-config
+
+      - name: Setup vcpkg
+        run: |
+          git clone https://github.com/Microsoft/vcpkg.git vcpkg
+          ./vcpkg/bootstrap-vcpkg.sh
+          ./vcpkg/vcpkg install --triplet=x64-linux
+
+      - name: Configure CMake for linting
+        run: |
+          cmake -B build \
+            -G "Unix Makefiles" \
+            -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DCMAKE_BUILD_TYPE=Release
+
+      - name: Run clang-tidy on source files
+        continue-on-error: true
+        run: |
+          clang-tidy -p build src/csv_parser.cpp src/storage.cpp src/hash_index.cpp src/query_parser.cpp src/execution_engine.cpp
+
+      - name: Verify documentation files exist
+        run: |
+          echo "Checking documentation files..."
+          for doc in docs/00_intended_use.md docs/01_plan.md docs/02_SRS.md docs/03_SDS.md docs/04_test_plan.md docs/05_acceptance_tests.md docs/06_traceability.md docs/07_deploy.md docs/08_known_issues.md; do
+            if [ -f "$doc" ]; then
+              echo "✓ Found $doc"
+            else
+              echo "✗ Missing $doc"
+              exit 1
+            fi
+          done
+          echo "All documentation files present!"
+
+      - name: Validate README
+        run: |
+          if [ -f "README.md" ]; then
+            echo "✓ README.md exists"
+            if [ -s "README.md" ]; then
+              echo "✓ README.md is not empty"
+            else
+              echo "✗ README.md is empty"
+              exit 1
+            fi
+          else
+            echo "✗ README.md missing"
+            exit 1
+          fi
