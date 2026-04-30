@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
+# vcpkg toolchain integration
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+
 project(CSVMiniDB LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# vcpkg toolchain integration
-set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 
 # Find csv-parser
 find_package(unofficial-vincentlaucsb-csv-parser CONFIG REQUIRED)
