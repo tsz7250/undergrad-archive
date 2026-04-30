@@ -17,13 +17,24 @@
 
 ## 2. 本機部署步驟
 
-### 步驟 1：安裝依賴
-```bash
-# 使用 vcpkg 安裝所需庫
-vcpkg install csv-parser gtest
+### 步驟 1：安裝 vcpkg 與依賴
+本專案建議將 `vcpkg` 作為子目錄安裝於專案根目錄，以符合 `CMakeLists.txt` 的預設設定：
 
-# 設定環境變數（如未自動設置）
-export VCPKG_ROOT=/path/to/vcpkg
+```bash
+# 克隆 vcpkg
+git clone https://github.com/microsoft/vcpkg.git
+
+# 初始化 vcpkg
+# Windows:
+.\vcpkg\bootstrap-vcpkg.bat
+# Linux/macOS:
+./vcpkg/bootstrap-vcpkg.sh
+
+# 安裝依賴 (Manifest Mode)
+# Windows:
+.\vcpkg\vcpkg install
+# Linux/macOS:
+./vcpkg/vcpkg install
 ```
 
 ### 步驟 2：克隆或下載專案
@@ -37,31 +48,34 @@ cd 11402_CS351_ProjectB
 # 建立構建目錄
 mkdir build && cd build
 
-# 使用 CMake 配置（指定 vcpkg toolchain）
-cmake .. -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release
+# 使用 CMake 配置
+# 註：CMakeLists.txt 已預設指向 ./vcpkg 工具鏈
+cmake .. -DCMAKE_BUILD_TYPE=Release
 
 # 編譯
-make -j4
+# Windows/Linux 通用:
+cmake --build . --config Release
 ```
 
 ### 步驟 4：執行與驗證
 ```bash
-# 執行主程式（需傳入 CSV 檔案路徑和查詢語句）
-./bin/csv_db_engine <csv_file> "<query_string>"
+# Windows:
+.\Release\csv_mini_db.exe ..\sample_data.csv "SELECT * FROM data WHERE Grade = 'A'"
 
-# 例如
-./bin/csv_db_engine data/students.csv "SELECT * FROM students WHERE Grade = 'A'"
+# Linux/macOS:
+./csv_mini_db ../sample_data.csv "SELECT * FROM data WHERE Grade = 'A'"
 ```
 
 ### 步驟 5：執行測試
 ```bash
-# 運行單元測試
-ctest --verbose
+# 運行單元測試 (Ctest)
+ctest -C Release --verbose
 
-# 或直接執行測試二進位檔
-./bin/test_csv_parser
-./bin/test_hash_index
-./bin/test_query_engine
+# 或直接執行測試二進位檔 (Windows)
+.\test\Release\csv_db_tests.exe
+
+# 或直接執行測試二進位檔 (Linux/macOS)
+./test/csv_db_tests
 ```
 
 ---
@@ -118,13 +132,12 @@ docker run -it -v /path/to/local/data:/data csv-db-engine:latest
 
 ### 問題 1：CMake 找不到 vcpkg Toolchain
 **症狀**：構建時出現 `vcpkg.cmake not found` 錯誤  
+**原因**：專案預期 `vcpkg` 資料夾位於根目錄下。  
 **解決方案**：
+1. 確認 `vcpkg` 已克隆至專案目錄。
+2. 或是手動指定工具鏈路徑：
 ```bash
-# 確認 VCPKG_ROOT 環境變數正確
-echo $VCPKG_ROOT
-
-# 重新執行 CMake，明確指定路徑
-cmake .. -DCMAKE_TOOLCHAIN_FILE=<absolute_path_to_vcpkg.cmake>
+cmake .. -DCMAKE_TOOLCHAIN_FILE=<絕對路徑_到_vcpkg.cmake>
 ```
 
 ---

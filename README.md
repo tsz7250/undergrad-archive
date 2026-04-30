@@ -48,25 +48,51 @@ graph TD
 - **建置工具**: CMake 3.10+
 
 ### 本機建置
-1. **安裝依賴**:
+
+1. **準備 vcpkg**:
+   本專案建議將 `vcpkg` 安裝於專案根目錄下：
    ```bash
-   vcpkg install csv-parser gtest
+   git clone https://github.com/microsoft/vcpkg.git
+   # Windows
+   .\vcpkg\bootstrap-vcpkg.bat
+   # Linux/macOS
+   ./vcpkg/bootstrap-vcpkg.sh
    ```
-2. **編譯專案**:
+
+2. **安裝依賴 (Manifest Mode)**:
+   由於專案包含 `vcpkg.json`，請直接執行安裝：
+   ```bash
+   # Windows
+   .\vcpkg\vcpkg install
+   # Linux/macOS
+   ./vcpkg/vcpkg install
+   ```
+
+3. **編譯專案**:
    ```bash
    mkdir build && cd build
-   cmake .. -DCMAKE_TOOLCHAIN_FILE=[path/to/vcpkg]/scripts/buildsystems/vcpkg.cmake
-   make
+   # 配置 CMake (自動帶入專案內的 vcpkg 工具鏈)
+   cmake ..
+   # 編譯
+   cmake --build . --config Release
    ```
-3. **執行主程式**:
+
+4. **執行主程式**:
    ```bash
+   # Windows
+   .\Release\csv_mini_db.exe ..\sample_data.csv "SELECT * FROM data WHERE Grade = 'A'"
+   # Linux/macOS
    ./csv_mini_db ../sample_data.csv "SELECT * FROM data WHERE Grade = 'A'"
    ```
-4. **執行測試**:
+
+5. **執行測試**:
    ```bash
-   ctest
-   # or
-   ./csv_db_tests
+   # 使用 ctest
+   ctest -C Release
+   # 或直接執行測試程式 (Windows)
+   .\test\Release\csv_db_tests.exe
+   # 或直接執行測試程式 (Linux/macOS)
+   ./test/csv_db_tests
    ```
 
 ### Docker 建置
