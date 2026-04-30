@@ -11,13 +11,13 @@ protected:
 
     void SetUp() override {
         storage.clear();
-        storage.setColumnNames({"Name", "Age", "Grade"});
+        storage.setColumnNames({"ID", "Name", "Age", "Gender", "Grade", "GPA", "Department", "Email"});
 
         // Add test data
-        storage.addRow({{"Name", "Alice"}, {"Age", "20"}, {"Grade", "A"}});
-        storage.addRow({{"Name", "Bob"}, {"Age", "20"}, {"Grade", "B"}});
-        storage.addRow({{"Name", "Charlie"}, {"Age", "19"}, {"Grade", "A"}});
-        storage.addRow({{"Name", "David"}, {"Age", "21"}, {"Grade", "A"}});
+        storage.addRow({{"ID", "1"}, {"Name", "Alice"}, {"Age", "20"}, {"Gender", "Female"}, {"Grade", "A"}, {"GPA", "3.8"}, {"Department", "CS"}, {"Email", "alice@example.com"}});
+        storage.addRow({{"ID", "2"}, {"Name", "Bob"}, {"Age", "20"}, {"Gender", "Male"}, {"Grade", "B"}, {"GPA", "3.2"}, {"Department", "Physics"}, {"Email", "bob@example.com"}});
+        storage.addRow({{"ID", "3"}, {"Name", "Charlie"}, {"Age", "19"}, {"Gender", "Male"}, {"Grade", "A"}, {"GPA", "3.9"}, {"Department", "CS"}, {"Email", "charlie@example.com"}});
+        storage.addRow({{"ID", "4"}, {"Name", "David"}, {"Age", "21"}, {"Gender", "Male"}, {"Grade", "A"}, {"GPA", "3.5"}, {"Department", "Math"}, {"Email", "david@example.com"}});
 
         index_builder.clear();
     }
@@ -30,6 +30,7 @@ TEST_F(HashIndexTest, BuildIndices) {
     EXPECT_TRUE(index_builder.hasColumnIndex("Name"));
     EXPECT_TRUE(index_builder.hasColumnIndex("Age"));
     EXPECT_TRUE(index_builder.hasColumnIndex("Grade"));
+    EXPECT_TRUE(index_builder.hasColumnIndex("GPA"));
 }
 
 // UT-03: Lookup exact match

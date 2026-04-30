@@ -9,16 +9,16 @@ protected:
 
     void SetUp() override {
         storage.clear();
-        storage.setColumnNames({"Name", "Age", "Grade"});
+        storage.setColumnNames({"ID", "Name", "Age", "Gender", "Grade", "GPA", "Department", "Email"});
     }
 };
 
 // UT-02: Add rows and assign RowID
 TEST_F(StorageLayerTest, AddRowsAssignRowID) {
     std::map<std::string, std::string> row1 = {
-        {"Name", "Alice"}, {"Age", "20"}, {"Grade", "A"}};
+        {"ID", "1"}, {"Name", "Alice"}, {"Age", "20"}, {"Gender", "Female"}, {"Grade", "A"}, {"GPA", "3.8"}, {"Department", "CS"}, {"Email", "alice@example.com"}};
     std::map<std::string, std::string> row2 = {
-        {"Name", "Bob"}, {"Age", "19"}, {"Grade", "B"}};
+        {"ID", "2"}, {"Name", "Bob"}, {"Age", "19"}, {"Gender", "Male"}, {"Grade", "B"}, {"GPA", "3.2"}, {"Department", "Physics"}, {"Email", "bob@example.com"}};
 
     RowID id1 = storage.addRow(row1);
     RowID id2 = storage.addRow(row2);
@@ -31,20 +31,20 @@ TEST_F(StorageLayerTest, AddRowsAssignRowID) {
 // UT-02: Get row by RowID
 TEST_F(StorageLayerTest, GetRowByID) {
     std::map<std::string, std::string> row = {
-        {"Name", "Alice"}, {"Age", "20"}, {"Grade", "A"}};
+        {"ID", "1"}, {"Name", "Alice"}, {"Age", "20"}, {"Gender", "Female"}, {"Grade", "A"}, {"GPA", "3.8"}, {"Department", "CS"}, {"Email", "alice@example.com"}};
     RowID id = storage.addRow(row);
 
     const Row* retrieved = storage.getRow(id);
     ASSERT_NE(retrieved, nullptr);
     EXPECT_EQ(retrieved->id, id);
     EXPECT_EQ(retrieved->values.at("Name"), "Alice");
-    EXPECT_EQ(retrieved->values.at("Age"), "20");
+    EXPECT_EQ(retrieved->values.at("GPA"), "3.8");
 }
 
 // UT-02: Get all rows
 TEST_F(StorageLayerTest, GetAllRows) {
-    storage.addRow({{"Name", "Alice"}, {"Age", "20"}, {"Grade", "A"}});
-    storage.addRow({{"Name", "Bob"}, {"Age", "19"}, {"Grade", "B"}});
+    storage.addRow({{"ID", "1"}, {"Name", "Alice"}, {"Age", "20"}, {"Gender", "Female"}, {"Grade", "A"}, {"GPA", "3.8"}, {"Department", "CS"}, {"Email", "alice@example.com"}});
+    storage.addRow({{"ID", "2"}, {"Name", "Bob"}, {"Age", "19"}, {"Gender", "Male"}, {"Grade", "B"}, {"GPA", "3.2"}, {"Department", "Physics"}, {"Email", "bob@example.com"}});
 
     const auto& all_rows = storage.getAllRows();
     EXPECT_EQ(all_rows.size(), 2);
@@ -54,9 +54,14 @@ TEST_F(StorageLayerTest, GetAllRows) {
 TEST_F(StorageLayerTest, RowIDSequential) {
     for (int i = 0; i < 10; ++i) {
         std::map<std::string, std::string> row = {
+            {"ID", std::to_string(i + 1)},
             {"Name", "Person" + std::to_string(i)},
             {"Age", std::to_string(20 + i)},
-            {"Grade", "A"}};
+            {"Gender", "Other"},
+            {"Grade", "A"},
+            {"GPA", "3.0"},
+            {"Department", "Testing"},
+            {"Email", "test@example.com"}};
         RowID id = storage.addRow(row);
         EXPECT_EQ(id, i);
     }
@@ -64,7 +69,7 @@ TEST_F(StorageLayerTest, RowIDSequential) {
 
 // UT-02: Clear storage
 TEST_F(StorageLayerTest, ClearStorage) {
-    storage.addRow({{"Name", "Alice"}, {"Age", "20"}, {"Grade", "A"}});
+    storage.addRow({{"ID", "1"}, {"Name", "Alice"}, {"Age", "20"}, {"Gender", "Female"}, {"Grade", "A"}, {"GPA", "3.8"}, {"Department", "CS"}, {"Email", "alice@example.com"}});
     EXPECT_EQ(storage.getRowCount(), 1);
 
     storage.clear();
@@ -74,17 +79,17 @@ TEST_F(StorageLayerTest, ClearStorage) {
 // UT-02: Column names
 TEST_F(StorageLayerTest, ColumnNames) {
     const auto& columns = storage.getColumnNames();
-    EXPECT_EQ(columns.size(), 3);
-    EXPECT_EQ(columns[0], "Name");
-    EXPECT_EQ(columns[1], "Age");
-    EXPECT_EQ(columns[2], "Grade");
+    EXPECT_EQ(columns.size(), 8);
+    EXPECT_EQ(columns[0], "ID");
+    EXPECT_EQ(columns[1], "Name");
+    EXPECT_EQ(columns[2], "Age");
 }
 
 // UT-02: Get column index
 TEST_F(StorageLayerTest, GetColumnIndex) {
-    EXPECT_EQ(storage.getColumnIndex("Name"), 0);
-    EXPECT_EQ(storage.getColumnIndex("Age"), 1);
-    EXPECT_EQ(storage.getColumnIndex("Grade"), 2);
+    EXPECT_EQ(storage.getColumnIndex("ID"), 0);
+    EXPECT_EQ(storage.getColumnIndex("Name"), 1);
+    EXPECT_EQ(storage.getColumnIndex("GPA"), 5);
     EXPECT_EQ(storage.getColumnIndex("NonExistent"), std::string::npos);
 }
 
@@ -97,7 +102,7 @@ TEST_F(StorageLayerTest, HasColumn) {
 
 // UT-02: Get nonexistent row returns nullptr
 TEST_F(StorageLayerTest, GetNonexistentRow) {
-    storage.addRow({{"Name", "Alice"}, {"Age", "20"}, {"Grade", "A"}});
+    storage.addRow({{"ID", "1"}, {"Name", "Alice"}, {"Age", "20"}, {"Gender", "Female"}, {"Grade", "A"}, {"GPA", "3.8"}, {"Department", "CS"}, {"Email", "alice@example.com"}});
     const Row* row = storage.getRow(999);
     EXPECT_EQ(row, nullptr);
 }
