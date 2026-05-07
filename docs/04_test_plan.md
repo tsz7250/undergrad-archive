@@ -26,6 +26,6 @@
 
 ## 3. 自動化測試腳本 (Automation)
 本專案的測試將透過 GitHub Actions 自動執行。每次觸發 `Push` 或 `Pull Request` 時，系統會：
-1. 編譯專案：`g++ -std=c++20 -Isrc tests/test_twosum.cpp src/TwoSumArray.cpp src/TwoSumHashTable.cpp -o test_twosum`
-2. 執行二進位檔：`./test_twosum`
-3. 判定結果：若輸出狀態碼為 `0` 表示所有 Assertions 測試通過；若為其他值，CI 的該次 Build 則會標示為失敗 (Failed)。
+1. 配置與編譯專案：使用 `cmake -B build` 配置並以 `cmake --build build` 進行編譯。
+2. 執行測試：使用 `ctest` 指令（於 `build` 目錄下執行 `ctest --output-on-failure`）或直接執行生成的 `test_twosum` 執行檔。
+3. 判定結果：若 `ctest` 回報測試通過或執行檔輸出狀態碼為 `0`，則表示所有單元測試通過；若失敗，CI 流程將會標示為失敗 (Failed)。
