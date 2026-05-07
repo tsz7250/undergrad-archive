@@ -30,8 +30,9 @@
 
 ### 本機建置
 ```bash
-g++ -std=c++20 main.cpp TwoSumArray.cpp TwoSumHashTable.cpp -o solution
-./solution
+cmake -B build
+cmake --build build
+cd build && ctest --output-on-failure
 ```
 
 ### Docker
@@ -45,9 +46,9 @@ docker run twosum-solution
 本專案使用 GitHub Actions 實作完整的持續整合 (CI) 流程。每當有新的程式碼推送到 `main` 分支或建立 Pull Request 時，系統會自動啟動虛擬環境執行以下步驟：
 
 1.  **環境初始化**: 使用 `ubuntu-latest` 映像檔。
-2.  **安裝依賴**: 確保系統安裝了最新的 `build-essential` (包含 g++)。
-3.  **編譯驗證**: 使用 C++ 20 標準編譯 `main.cpp`。
-4.  **自動測試**: 執行編譯後的程式，驗證所有 5 個測試案例是否皆通過（包含邊界案例與負數案例）。
+2.  **安裝依賴**: 確保系統安裝了最新的 `build-essential` 與 `cmake`。
+3.  **編譯驗證**: 透過 CMake 產生建置檔並進行編譯。
+4.  **自動測試**: 透過 CTest 執行編譯後的程式，驗證所有 5 個測試案例是否皆通過（包含邊界案例與負數案例）。
 
 ### CI Workflows example
 
@@ -67,14 +68,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Install dependencies
-      run: sudo apt-get install -y build-essential
+      run: sudo apt-get update && sudo apt-get install -y build-essential cmake
+
+    - name: Configure CMake
+      run: cmake -B build
 
     - name: Compile
-      run: g++ -std=c++20 main.cpp -o solution
+      run: cmake --build build
 
     - name: Run tests
-      run: ./solution
+      run: cd build && ctest --output-on-failure
 ```

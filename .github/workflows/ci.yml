@@ -14,10 +14,13 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y build-essential
+      run: sudo apt-get update && sudo apt-get install -y build-essential cmake
+
+    - name: Configure CMake
+      run: cmake -B build
 
     - name: Compile
-      run: g++ -std=c++20 -Isrc src/main.cpp src/TwoSumArray.cpp src/TwoSumHashTable.cpp -o solution
+      run: cmake --build build
 
     - name: Run tests
-      run: ./solution
+      run: cd build && ctest --output-on-failure
