@@ -16,7 +16,7 @@
     - **一般案例**: 具有保證解的標準輸入陣列。
     - **邊界案例**: 處理重複數值、負數以及多樣的目標值 (target)。
     - **極限條件**: 最小有效陣列、大範圍數值。
-- **測試運行器**: 在 `main.cpp` 中整合測試套件，驗證所有實作的正確性。
+- **測試運行器**: 在 `tests/test_twosum.cpp` 中整合測試套件，驗證所有實作的正確性。
 
 ### CI/CD 流程 (GitHub Actions)
 - **自動化測試**: 為兩種實作觸發自動化建置與測試。
@@ -30,8 +30,9 @@
 
 ### 本機建置
 ```bash
-g++ -std=c++20 main.cpp TwoSumArray.cpp TwoSumHashTable.cpp -o solution
-./solution
+cmake -B build
+cmake --build build
+cd build && ctest --output-on-failure
 ```
 
 ### Docker
@@ -45,36 +46,14 @@ docker run twosum-solution
 本專案使用 GitHub Actions 實作完整的持續整合 (CI) 流程。每當有新的程式碼推送到 `main` 分支或建立 Pull Request 時，系統會自動啟動虛擬環境執行以下步驟：
 
 1.  **環境初始化**: 使用 `ubuntu-latest` 映像檔。
-2.  **安裝依賴**: 確保系統安裝了最新的 `build-essential` (包含 g++)。
-3.  **編譯驗證**: 使用 C++ 20 標準編譯 `main.cpp`。
-4.  **自動測試**: 執行編譯後的程式，驗證所有 5 個測試案例是否皆通過（包含邊界案例與負數案例）。
+2.  **安裝依賴**: 確保系統安裝了最新的 `build-essential` 與 `cmake`。
+3.  **編譯驗證**: 透過 CMake 產生建置檔並進行編譯。
+4.  **自動測試**: 透過 CTest 執行編譯後的程式，驗證所有 5 個測試案例是否皆通過（包含邊界案例與負數案例）。
 
-### CI Workflows example
+### CI 工作流設定
 
-以下是本專案使用的 `.github/workflows/test.yml` 內容：
+本專案使用 GitHub Actions 進行持續整合，自動化流程定義於 `.github/workflows/ci.yml`，主要運作邏輯如下：
 
-```yaml
-name: C++ CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Install dependencies
-      run: sudo apt-get install -y build-essential
-
-    - name: Compile
-      run: g++ -std=c++20 main.cpp -o solution
-
-    - name: Run tests
-      run: ./solution
-```
+- **自動觸發**：每當程式碼推送 (Push) 或建立拉取請求 (Pull Request) 時，系統會自動啟動建置任務。
+- **環境建置**：在標準的 Ubuntu 環境中安裝必要的 C++ 編譯器與 CMake 工具。
+- **編譯與測試**：自動執行專案編譯，並隨後透過 CTest 執行完整的測試套件，確保每一項改動都通過正確性驗證。
