@@ -3,6 +3,7 @@
 #include <cassert>
 #include <algorithm>
 #include <string>
+#include <chrono>
 #include "TwoSumArray.h"
 #include "TwoSumHashTable.h"
 
@@ -55,6 +56,40 @@ bool runTestCase(const std::string& testName, const std::vector<int>& nums, int 
     return true;
 }
 
+void runPerformanceTest(int size) {
+    std::cout << "--- Performance Test (N = " << size << ") ---\n";
+    std::vector<int> nums(size);
+    for (int i = 0; i < size; ++i) {
+        nums[i] = i + 1;
+    }
+    // We set target such that the solution is at the very end of the array.
+    // This forces both algorithms to process almost the entire array (worst-case).
+    int target = nums[size - 2] + nums[size - 1]; 
+
+    // Benchmark TwoSumArray
+    auto startArray = std::chrono::steady_clock::now();
+    std::vector<int> resArray = twoSumArray(nums, target);
+    auto endArray = std::chrono::steady_clock::now();
+    auto durationArray = std::chrono::duration_cast<std::chrono::microseconds>(endArray - startArray).count();
+
+    // Benchmark TwoSumHashTable
+    auto startHash = std::chrono::steady_clock::now();
+    std::vector<int> resHash = twoSumHashTable(nums, target);
+    auto endHash = std::chrono::steady_clock::now();
+    auto durationHash = std::chrono::duration_cast<std::chrono::microseconds>(endHash - startHash).count();
+
+    // Verify correctness: Ensure they return exactly 2 indices and their values sum up to target
+    bool arrayCorrect = (resArray.size() == 2) && (nums[resArray[0]] + nums[resArray[1]] == target);
+    bool hashCorrect = (resHash.size() == 2) && (nums[resHash[0]] + nums[resHash[1]] == target);
+
+    if (!arrayCorrect || !hashCorrect) {
+        std::cerr << "Performance test failed! Incorrect result.\n";
+    }
+
+    std::cout << "TwoSumArray (O(n log n)) time: " << durationArray << " us\n";
+    std::cout << "TwoSumHashTable (O(n)) time:     " << durationHash << " us\n";
+}
+
 int main() {
     std::cout << "=== Running Two Sum Automated Tests ===\n\n";
 
@@ -74,6 +109,11 @@ int main() {
 
     // Test Case 5: Extreme bounds
     allPassed &= runTestCase("Test 5: Extreme Bounds", {1000000000, -1000000000}, 0, {0, 1});
+
+    std::cout << "\n=== Running Performance Tests ===\n\n";
+    runPerformanceTest(10000);
+    runPerformanceTest(100000);
+    runPerformanceTest(1000000);
 
     std::cout << "\n=======================================\n";
     if (allPassed) {

@@ -21,6 +21,9 @@
   - 輸入範例: `nums = [1, 2, 3], target = 7`
   - 預期輸出: `[]` (空陣列)
 
+### 2.3 效能測試 (Performance Cases)
+- **測試案例 5 (動態大規模測試)**：為了突顯 `TwoSumHashTable` ($O(n)$) 與 `TwoSumArray` ($O(n \log n)$) 的時間複雜度差異，程式會於執行期間動態生成大量元素的陣列（如 $10,000$ 與 $100,000$ 個元素），並將目標值設定為無法找到的狀態（最差情況）。使用 `<chrono>` 函式庫精確測量雙方的執行時間，並輸出於終端機進行比對。
+
 ## 3. 自動化測試腳本 (Automation)
 本專案的測試將透過 GitHub Actions 自動執行。每次觸發 `Push` 或 `Pull Request` 時，系統會：
 1. 編譯專案：`g++ -std=c++20 -Isrc src/main.cpp src/TwoSumArray.cpp src/TwoSumHashTable.cpp -o solution`
