@@ -10,7 +10,7 @@
 
 ### 第一階段：基礎演算法實作 (Milestone 1)
 - 實作 `$O(n \log n)$` 之 `TwoSumArray()` 函式。
-- 建立主程式 `main.cpp` 用於運行基本測試案例。
+- 建立主程式 `main.cpp` 提供互動式介面，並建立 `tests/test_twosum.cpp` 運行基本測試案例。
 
 ### 第二階段：優化演算法實作 (Milestone 2)
 - 實作 `$O(n)$` 之 `TwoSumHashTable()` 函式。

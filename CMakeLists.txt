@@ -15,14 +15,20 @@ add_library(twosum_lib
 # Add include directories so consumers can find headers
 target_include_directories(twosum_lib PUBLIC src)
 
-# Create the test executable
+# Create the main interactive executable
 add_executable(solution src/main.cpp)
 
 # Link the executable with the library
 target_link_libraries(solution PRIVATE twosum_lib)
 
+# Create the test executable
+add_executable(test_twosum tests/test_twosum.cpp)
+
+# Link the test executable with the library
+target_link_libraries(test_twosum PRIVATE twosum_lib)
+
 # Enable testing
 enable_testing()
 
 # Register the executable as a CTest test
-add_test(NAME AllTests COMMAND solution)
+add_test(NAME AllTests COMMAND test_twosum)
