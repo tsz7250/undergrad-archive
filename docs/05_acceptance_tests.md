@@ -9,7 +9,7 @@
 
 ## 2. 驗收準則二：持續整合驗證 (Continuous Integration Validation)
 - **目的**：確認專案在設定 CI/CD 流程後，能夠作為自動化驗證的參考範例。
-- **操作步驟**：在本 repository 已設定 GitHub Actions 工作流程的前提下，將代碼推送 (Push) 至 GitHub repository 的 `main` 分支，以觸發對應的 CI Workflow。
+- **操作步驟**：在本 repository 已設定 GitHub Actions 工作流程的前提下，將代碼推送 (Push) 至 GitHub repository 的任意分支，以觸發對應的 CI Workflow。
 - **通過條件**：若本 repository 已配置 GitHub Actions 工作流程，則該工作流程必須能被成功觸發，並在 `ubuntu-latest` 虛擬環境中依序完成環境部署、代碼編譯並執行測試無誤，最終狀態顯示為綠色的 `Pass`；若尚未配置任何工作流程，則本項視為延伸驗收準則，開發者可自行新增 `.github/workflows/` 中的 CI 設定後再行驗證。
 
 ## 3. 驗收準則三：容器化部署驗證 (Containerization Validation)

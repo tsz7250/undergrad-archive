@@ -22,29 +22,34 @@ bool compareResult(const std::vector<int>& actual, const std::vector<int>& expec
     return actual_sorted == expected_sorted;
 }
 
-void printResult(const std::string& name, const std::vector<int>& nums, int target, const std::vector<int>& expected, const std::vector<int>& actual) {
-    std::cout << "[" << name << "] Target: " << target << " | Expected: ";
-    if (expected.empty()) std::cout << "[]";
-    else std::cout << "[" << expected[0] << ", " << expected[1] << "]";
-    std::cout << " | Actual: ";
+void printResult(const std::string& name, const std::vector<int>& expected, const std::vector<int>& actual) {
+    std::cout << "  [" << name << "] Output: ";
     if (actual.empty()) std::cout << "[]";
     else std::cout << "[" << actual[0] << ", " << actual[1] << "]";
+    std::cout << " | Expected: ";
+    if (expected.empty()) std::cout << "[]";
+    else std::cout << "[" << expected[0] << ", " << expected[1] << "]";
     
     if (compareResult(actual, expected)) {
-        std::cout << " -> PASS\n";
+        std::cout << " -> ✅ PASS\n";
     } else {
-        std::cout << " -> FAIL\n";
+        std::cout << " -> ❌ FAIL\n";
     }
 }
 
 bool runTestCase(const std::string& testName, const std::vector<int>& nums, int target, const std::vector<int>& expected) {
     std::cout << "--- " << testName << " ---\n";
+    std::cout << "Input: nums = [";
+    for (size_t i = 0; i < nums.size(); ++i) {
+        std::cout << nums[i] << (i < nums.size() - 1 ? ", " : "");
+    }
+    std::cout << "], target = " << target << "\n";
     
     std::vector<int> resArray = twoSumArray(nums, target);
     std::vector<int> resHash = twoSumHashTable(nums, target);
 
-    printResult("TwoSumArray", nums, target, expected, resArray);
-    printResult("TwoSumHashTable", nums, target, expected, resHash);
+    printResult("TwoSumArray", expected, resArray);
+    printResult("TwoSumHashTable", expected, resHash);
 
     bool arrayPass = compareResult(resArray, expected);
     bool hashPass = compareResult(resHash, expected);
@@ -117,10 +122,10 @@ int main() {
 
     std::cout << "\n=======================================\n";
     if (allPassed) {
-        std::cout << "ALL TESTS PASSED SUCCESSFULLY.\n";
+        std::cout << "✅ ALL TESTS PASSED SUCCESSFULLY.\n";
         return 0; // Success exit code
     } else {
-        std::cerr << "SOME TESTS FAILED. PLEASE CHECK OUTPUT.\n";
+        std::cerr << "❌ SOME TESTS FAILED. PLEASE CHECK OUTPUT.\n";
         return 1; // Error exit code
     }
 }

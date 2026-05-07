@@ -20,7 +20,7 @@
 
 ### CI/CD 流程 (GitHub Actions)
 - **自動化測試**: 為兩種實作觸發自動化建置與測試。
-- **工作流觸發**: 在每次提交 (push) 或拉取請求 (pull request) 到 `main` 分支時執行。
+- **工作流觸發**: 在每次提交 (push) 或拉取請求 (pull request) 到任意分支時執行。
 
 ### 軟體打包 (Docker)
 - **容器化**: 提供 `Dockerfile` 以實現標準化的環境部署。
@@ -43,7 +43,7 @@ docker run twosum-solution
 
 ## Github Acitons 的詳述
 
-本專案使用 GitHub Actions 實作完整的持續整合 (CI) 流程。每當有新的程式碼推送到 `main` 分支或建立 Pull Request 時，系統會自動啟動虛擬環境執行以下步驟：
+本專案使用 GitHub Actions 實作完整的持續整合 (CI) 流程。每當有新的程式碼推送到任意分支或建立 Pull Request 時，系統會自動啟動虛擬環境執行以下步驟：
 
 1.  **環境初始化**: 使用 `ubuntu-latest` 映像檔。
 2.  **安裝依賴**: 確保系統安裝了最新的 `build-essential` 與 `cmake`。
