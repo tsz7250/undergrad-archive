@@ -91,7 +91,7 @@ jobs:
       - name: Run Tests
         run: |
           cd build
-          ctest --output-on-failure --build-config Release
+          ctest -VV --output-on-failure --build-config Release
         shell: bash
 
   quality-checks:
