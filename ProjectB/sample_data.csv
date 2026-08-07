@@ -1,0 +1,101 @@
+ID,Name,Age,Gender,Grade,GPA,Department,Email
+1,Peggy Garcia,21,Male,D,1.75,Computer Science,peggy.garcia1@university.edu
+2,Frank Johnson,24,Male,A,3.86,Physics,frank.johnson2@university.edu
+3,Nancy Smith,25,Male,B,3.02,Mechanical Engineering,nancy.smith3@university.edu
+4,Peggy Davis,25,Male,D,1.56,Computer Science,peggy.davis4@university.edu
+5,Eve Martinez,24,Male,D,1.6,Mechanical Engineering,eve.martinez5@university.edu
+6,Kevin Brown,22,Female,B,3.44,Fine Arts,kevin.brown6@university.edu
+7,Heidi Jones,18,Female,D,1.49,Physics,heidi.jones7@university.edu
+8,Bob Davis,22,Female,C,2.18,Physics,bob.davis8@university.edu
+9,Trudy Rodriguez,18,Male,C,2.94,Business Administration,trudy.rodriguez9@university.edu
+10,Grace Garcia,20,Female,D,1.01,Business Administration,grace.garcia10@university.edu
+11,David Garcia,21,Female,B,3.21,Mechanical Engineering,david.garcia11@university.edu
+12,Peggy Miller,19,Male,A,3.7,Business Administration,peggy.miller12@university.edu
+13,Laura Johnson,21,Male,C,2.94,Business Administration,laura.johnson13@university.edu
+14,David Smith,23,Female,B,3.67,Mechanical Engineering,david.smith14@university.edu
+15,Charlie Williams,20,Male,D,1.7,Computer Science,charlie.williams15@university.edu
+16,Eve Brown,25,Female,B,3.1,Physics,eve.brown16@university.edu
+17,Eve Williams,19,Male,D,1.08,Computer Science,eve.williams17@university.edu
+18,Bob Miller,25,Male,B,3.24,Mathematics,bob.miller18@university.edu
+19,Oscar Martinez,21,Female,B,3.53,Fine Arts,oscar.martinez19@university.edu
+20,Charlie Miller,24,Male,B,3.32,Fine Arts,charlie.miller20@university.edu
+21,Charlie Smith,24,Male,B,3.35,Mathematics,charlie.smith21@university.edu
+22,Heidi Johnson,25,Male,A,3.95,Computer Science,heidi.johnson22@university.edu
+23,Judy Brown,18,Male,B,3.26,Fine Arts,judy.brown23@university.edu
+24,Mike Garcia,20,Male,D,1.08,Physics,mike.garcia24@university.edu
+25,Eve Johnson,19,Male,C,2.58,Mathematics,eve.johnson25@university.edu
+26,Ivan Smith,18,Female,B,3.34,Computer Science,ivan.smith26@university.edu
+27,Nancy Jones,20,Male,D,1.13,Fine Arts,nancy.jones27@university.edu
+28,Heidi Garcia,24,Male,B,3.43,Computer Science,heidi.garcia28@university.edu
+29,Heidi Rodriguez,18,Male,B,3.56,Fine Arts,heidi.rodriguez29@university.edu
+30,Steve Martinez,18,Female,B,3.52,Computer Science,steve.martinez30@university.edu
+31,Nancy Smith,25,Female,C,2.29,Business Administration,nancy.smith31@university.edu
+32,Rose Williams,23,Female,C,2.23,Computer Science,rose.williams32@university.edu
+33,Mike Miller,25,Male,C,2.84,Physics,mike.miller33@university.edu
+34,Quinn Smith,23,Male,C,2.35,Physics,quinn.smith34@university.edu
+35,Heidi Smith,23,Male,B,3.32,Mechanical Engineering,heidi.smith35@university.edu
+36,Oscar Martinez,19,Female,C,2.87,Fine Arts,oscar.martinez36@university.edu
+37,Laura Davis,23,Female,D,1.16,Physics,laura.davis37@university.edu
+38,Alice Rodriguez,19,Male,C,2.4,Physics,alice.rodriguez38@university.edu
+39,Trudy Jones,22,Male,B,3.53,Mechanical Engineering,trudy.jones39@university.edu
+40,Alice Martinez,23,Male,B,3.5,Mathematics,alice.martinez40@university.edu
+41,Frank Rodriguez,19,Male,D,1.41,Fine Arts,frank.rodriguez41@university.edu
+42,Quinn Miller,25,Female,A,3.78,Computer Science,quinn.miller42@university.edu
+43,Trudy Garcia,19,Male,C,2.31,Mechanical Engineering,trudy.garcia43@university.edu
+44,Alice Martinez,22,Female,C,2.31,Computer Science,alice.martinez44@university.edu
+45,David Williams,18,Female,C,2.35,Business Administration,david.williams45@university.edu
+46,Charlie Davis,19,Male,D,1.86,Computer Science,charlie.davis46@university.edu
+47,Alice Davis,20,Female,D,1.46,Mathematics,alice.davis47@university.edu
+48,Steve Williams,22,Male,D,1.51,Physics,steve.williams48@university.edu
+49,David Miller,19,Male,D,1.73,Mathematics,david.miller49@university.edu
+50,David Miller,18,Male,D,1.88,Mathematics,david.miller50@university.edu
+51,David Davis,24,Female,A,3.76,Mechanical Engineering,david.davis51@university.edu
+52,Frank Jones,22,Female,B,3.5,Computer Science,frank.jones52@university.edu
+53,Frank Rodriguez,25,Male,C,2.43,Fine Arts,frank.rodriguez53@university.edu
+54,Bob Williams,22,Male,D,1.49,Mathematics,bob.williams54@university.edu
+55,Frank Jones,23,Male,B,3.5,Business Administration,frank.jones55@university.edu
+56,Laura Martinez,25,Male,D,1.6,Fine Arts,laura.martinez56@university.edu
+57,Kevin Garcia,19,Female,C,2.27,Business Administration,kevin.garcia57@university.edu
+58,Laura Rodriguez,18,Male,D,1.21,Business Administration,laura.rodriguez58@university.edu
+59,Trudy Jones,25,Male,C,2.49,Physics,trudy.jones59@university.edu
+60,Rose Smith,20,Male,C,2.85,Mathematics,rose.smith60@university.edu
+61,Frank Brown,18,Female,D,1.46,Physics,frank.brown61@university.edu
+62,Nancy Brown,22,Male,C,2.74,Business Administration,nancy.brown62@university.edu
+63,Frank Brown,20,Female,B,3.35,Physics,frank.brown63@university.edu
+64,Oscar Brown,19,Female,B,3.2,Computer Science,oscar.brown64@university.edu
+65,Trudy Brown,21,Male,D,1.89,Fine Arts,trudy.brown65@university.edu
+66,Mike Brown,23,Female,C,2.95,Physics,mike.brown66@university.edu
+67,Nancy Brown,22,Female,D,1.28,Mechanical Engineering,nancy.brown67@university.edu
+68,Eve Smith,20,Male,C,2.41,Mathematics,eve.smith68@university.edu
+69,Kevin Davis,24,Male,C,2.05,Physics,kevin.davis69@university.edu
+70,Nancy Martinez,22,Female,D,1.83,Physics,nancy.martinez70@university.edu
+71,Mike Miller,20,Female,C,2.04,Business Administration,mike.miller71@university.edu
+72,Peggy Jones,20,Female,B,3.63,Business Administration,peggy.jones72@university.edu
+73,Nancy Miller,23,Female,D,1.49,Mechanical Engineering,nancy.miller73@university.edu
+74,Rose Johnson,19,Male,C,2.26,Business Administration,rose.johnson74@university.edu
+75,Mike Miller,21,Male,D,1.53,Business Administration,mike.miller75@university.edu
+76,Ivan Williams,19,Female,A,3.74,Physics,ivan.williams76@university.edu
+77,Rose Brown,20,Female,A,3.7,Business Administration,rose.brown77@university.edu
+78,David Johnson,19,Male,B,3.05,Physics,david.johnson78@university.edu
+79,Bob Rodriguez,20,Female,D,1.59,Physics,bob.rodriguez79@university.edu
+80,Bob Davis,20,Female,A,3.7,Physics,bob.davis80@university.edu
+81,Judy Garcia,23,Female,D,1.89,Physics,judy.garcia81@university.edu
+82,Bob Rodriguez,18,Male,B,3.53,Physics,bob.rodriguez82@university.edu
+83,Eve Rodriguez,19,Female,D,1.95,Mechanical Engineering,eve.rodriguez83@university.edu
+84,Eve Davis,21,Female,C,2.1,Fine Arts,eve.davis84@university.edu
+85,Oscar Rodriguez,25,Female,B,3.09,Mathematics,oscar.rodriguez85@university.edu
+86,Ivan Williams,24,Female,B,3.55,Business Administration,ivan.williams86@university.edu
+87,Frank Williams,23,Female,C,2.61,Business Administration,frank.williams87@university.edu
+88,Charlie Smith,24,Male,D,1.95,Business Administration,charlie.smith88@university.edu
+89,Grace Smith,23,Male,C,2.07,Fine Arts,grace.smith89@university.edu
+90,Heidi Smith,21,Female,A,3.84,Business Administration,heidi.smith90@university.edu
+91,Heidi Davis,22,Male,C,2.39,Business Administration,heidi.davis91@university.edu
+92,Peggy Brown,19,Male,B,3.33,Mathematics,peggy.brown92@university.edu
+93,Alice Smith,25,Male,D,1.61,Mechanical Engineering,alice.smith93@university.edu
+94,David Smith,19,Male,C,2.85,Fine Arts,david.smith94@university.edu
+95,Peggy Martinez,21,Male,A,3.75,Mathematics,peggy.martinez95@university.edu
+96,David Davis,18,Male,D,1.29,Mechanical Engineering,david.davis96@university.edu
+97,Ivan Martinez,19,Male,C,2.69,Fine Arts,ivan.martinez97@university.edu
+98,Bob Johnson,23,Male,C,2.07,Physics,bob.johnson98@university.edu
+99,Oscar Smith,24,Female,B,3.22,Physics,oscar.smith99@university.edu
+100,Grace Rodriguez,20,Male,D,1.17,Mechanical Engineering,grace.rodriguez100@university.edu
