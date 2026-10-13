@@ -160,9 +160,13 @@ jobs:
           </body>
           </html>
           EOF
-          git rm .github/workflows/history-migration.yml
+          git rm --ignore-unmatch .github/workflows/history-migration.yml
           git add README.md index.html
-          git commit -m "Document archived histories and Pages sites"
+          if ! git diff --cached --quiet; then
+            git commit -m "Document archived histories and Pages sites"
+          fi
+          # Keep the latest main commit in ancestry without reintroducing this temporary workflow.
+          git merge -s ours --no-edit origin/main
           push_ref "HEAD:refs/heads/history-migration"
           # Advance main only after every source tree passes comparison.
           push_ref "HEAD:refs/heads/main"
