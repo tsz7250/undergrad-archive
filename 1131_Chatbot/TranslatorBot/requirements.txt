@@ -1,4 +1,0 @@
-line-bot-sdk
-flask
-configparser
-azure-ai-translation-text==1.0.0
