@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+li{
+    font-size: 15px;
+    text-align: left;
+}
+#ans{
+    font-size: 30px;
+    font-weight: bold;
+}
+#pic{
+    width: 20%;
+    height: 20%;
+}
