@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>點餐</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/order.css">
+    <script src="../static/js/order.js"></script>
+</head>
+
+<body>
+<h1>直接點餐</h1>
+<button onclick="location.href='../index.html'" style="
+						top: -20px;
+						left: 20px;
+						position: absolute;
+						margin-top: 50px;
+						width: 150px;
+						background-color: #3B3B3B;
+						color: #ffffff;
+						padding: 15px 0;
+						font-size: 18px;
+						font-weight: 600;
+						border-radius: 5px;
+						cursor: pointer;">回到主頁</button>
+<span id="tab-1">套餐</span>
+<span id="tab-2">麵</span>
+<span id="tab-3">飯</span>
+<span id="tab-4">潛艇堡</span>
+<span id="tab-5">吐司</span>
+<span id="tab-6">沙拉</span>
+<span id="tab-7">三明治</span>
+<span id="tab-8">鬆餅</span>
+
+<!-- 按鈕 -->
+<div id="tab">
+    <ul>
+        <li><a href="#tab-1">套餐</a></li>
+        <li><a href="#tab-2">麵</a></li>
+        <li><a href="#tab-3">飯</a></li>
+        <li><a href="#tab-4">潛艇堡</a></li>
+        <li><a href="#tab-5">吐司</a></li>
+        <li><a href="#tab-6">沙拉</a></li>
+        <li><a href="#tab-7">三明治</a></li>
+        <li><a href="#tab-8">鬆餅</a></li>
+    </ul>
+
+    <!-- 內容 -->
+    <div class="tab-content-1">
+        <table>
+            <div>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set1" value="set">
+                        <label for="set1">馬鈴薯沙拉鬆餅套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set2" value="noodle">
+                        <label for="set2">燻雞沙拉鬆餅套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set3" value="set">
+                        <label for="set3">原味燻雞堡套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set4" value="noodle">
+                        <label for="set4">原味熱狗堡套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set5" value="noodle">
+                        <label for="set5">卡拉嫩雞堡套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set6" value="noodle">
+                        <label for="set6">原味魚排堡套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set7" value="noodle">
+                        <label for="set7">培根義大利麵套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set8" value="noodle">
+                        <label for="set8">培根義大利飯套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set9" value="set">
+                        <label for="set9">燻雞義大利飯套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set10" value="noodle">
+                        <label for="set10">燻雞義大利麵套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set11" value="noodle">
+                        <label for="set11">魚排義大利麵套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set12" value="noodle">
+                        <label for="set12">魚排義大利飯套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set13" value="noodle">
+                        <label for="set13">蛤蜊義大利麵套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set14" value="noodle">
+                        <label for="set14">蛤蜊義大利飯套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set15" value="noodle">
+                        <label for="set15">蜂蜜鬆餅套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set16" value="noodle">
+                        <label for="set16">花生鬆餅套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set17" value="noodle">
+                        <label for="set17">抹茶紅豆鬆餅套餐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="set18" value="noodle">
+                        <label for="set18">香蕉巧克力鬆餅套餐</label>
+                    </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+
+    <div class="tab-content-2">
+        <table>
+            <div>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle" value="noodle">
+                        <label for="noodle">義大利麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle2" value="noodle2">
+                        <label for="noodle2">田園培根麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle3" value="noodle3">
+                        <label for="noodle3">德式燻肉麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle4" value="noodle4">
+                        <label for="noodle4">紐澳良燻雞麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle5" value="noodle5">
+                        <label for="noodle5">卡拉嫩雞麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle6" value="noodle6">
+                        <label for="noodle6">冰島魚排麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle7" value="noodle7">
+                        <label for="noodle7">蛤蠣麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle8" value="noodle8">
+                        <label for="noodle8">脆皮雞排麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle9" value="noodle9">
+                        <label for="noodle9">花枝麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle10" value="noodle10">
+                        <label for="noodle10">燒肉麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle11" value="noodle11">
+                        <label for="noodle11">燒肉便當</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle12" value="noodle12">
+                        <label for="noodle12">椒麻雞胸麵</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="noodle13" value="noodle13">
+                        <label for="noodle13">椒麻雞胸便當</label></td>
+                </tr>
+            </div>
+        </table>
+    </div><div class="tab-content-3">
+    <table>
+        <div>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice1" value="rice1">
+                    <label for="rice1">田園培根飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice2" value="rice2">
+                    <label for="rice2">德式燻肉飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice3" value="rice3">
+                    <label for="rice3">紐澳良燻雞飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice4" value="rice4">
+                    <label for="rice4">卡拉嫩雞飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice5" value="rice5">
+                    <label for="rice5">冰島魚排飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice6" value="rice6">
+                    <label for="rice6">蛤蠣飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice7" value="rice7">
+                    <label for="rice7">脆皮雞排飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice8" value="rice8">
+                    <label for="rice8">花枝飯</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="rice9" value="rice9">
+                    <label for="rice9">燒肉飯</label>
+                </td>
+            </tr>
+        </div>
+    </table>
+</div>
+
+    <div class="tab-content-4">
+        <table>
+            <div>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur" value="bur">
+                        <label for="bur">原味香薯堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur2" value="bur2">
+                        <label for="bur2">原味燻雞堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur3" value="bur3">
+                        <label for="bur3">蜜燒燻雞堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur4" value="bur4">
+                        <label for="bur4">辣味燻雞堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur5" value="bur5">
+                        <label for="bur5">馬鈴薯沙拉堡(含蛋)</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur6" value="bur6">
+                        <label for="bur6">野菜培根堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur7" value="bur7">
+                        <label for="bur7">原味熱狗堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur8" value="bur8">
+                        <label for="bur8">辣味熱狗堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur9" value="bur9">
+                        <label for="bur9">蜜燒熱狗堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur10" value="bur10">
+                        <label for="bur10">原味冰島魚排堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur11" value="bur11">
+                        <label for="bur11">辣味冰島魚排堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur12" value="bur12">
+                        <label for="bur12">蜜燒冰島魚排堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur13" value="bur13">
+                        <label for="bur13">原味卡拉雞嫩堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur14" value="bur14">
+                        <label for="bur14">辣味卡拉雞嫩堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur15" value="bur15">
+                        <label for="bur15">蜜燒卡拉雞嫩堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur16" value="bur16">
+                        <label for="bur16">原味脆皮雞排堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur17" value="bur17">
+                        <label for="bur17">辣味脆皮雞排堡</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="bur18" value="bur18">
+                        <label for="bur18">蜜燒脆皮雞排堡</label></td>
+                </tr>
+            </div>
+        </table>
+    </div><div class="tab-content-5">
+    <table>
+        <div>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast1" value="toast1">
+                    <label for="toast1">花生厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast2" value="toast2">
+                    <label for="toast2">奶酥厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast3" value="toast3">
+                    <label for="toast3">巧克力厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast4" value="toast4">
+                    <label for="toast4">香蒜厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast5" value="toast5">
+                    <label for="toast5">草莓厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast6" value="toast6">
+                    <label for="toast6">抹茶厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast7" value="toast7">
+                    <label for="toast7">芒果厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast8" value="toast8">
+                    <label for="toast8">培根焗烤厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast9" value="toast9">
+                    <label for="toast9">燻肉焗烤厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast10" value="toast10">
+                    <label for="toast10">燻雞焗烤厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast11" value="toast11">
+                    <label for="toast11">花生香蕉/焗烤厚片</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="type" id="toast12" value="toast12">
+                    <label for="toast12">巧克力香蕉焗烤厚片</label>
+                </td>
+            </tr>
+        </div>
+    </table>
+</div>
+
+    <div class="tab-content-6">
+        <table>
+            <div>
+                <tr>
+                    <td><input type="checkbox" name="type" id="salad" value="salad">
+                        <label for="salad">總匯沙拉(千島醬)</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="salad2" value="salad2">
+                        <label for="salad2">椒麻雞胸肉沙拉</label></td>
+                </tr>
+            </div>
+        </table>
+    </div>
+    <div class="tab-content-7">
+        <table>
+            <div>
+                <tr>
+                    <td><input type="checkbox" name="type" id="sand" value="sand">
+                        <label for="sand">馬鈴薯沙拉三明治</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="sand2" value="sand2">
+                        <label for="sand2">燻雞沙拉三明治</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="sand3" value="sand3">
+                        <label for="sand3">雞排九層塔三明治</label></td>
+                </tr>
+            </div>
+        </table>
+    </div>
+    <div class="tab-content-8">
+        <table>
+            <div>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle" value="waffle">
+                        <label for="waffle">原味鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle2" value="waffle2">
+                        <label for="waffle2">蜂蜜鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle3" value="waffle3">
+                        <label for="waffle3">花生鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle4" value="waffle4">
+                        <label for="waffle4">草莓鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle5" value="waffle5">
+                        <label for="waffle5">焦糖鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle6" value="waffle6">
+                        <label for="waffle6">巧克力鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle7" value="waffle7">
+                        <label for="waffle7">抹茶鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle8" value="waffle8">
+                        <label for="waffle8">紅豆鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle9" value="waffle9">
+                        <label for="waffle9">奶酥鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle10" value="waffle10">
+                        <label for="waffle10">抹茶紅豆鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle11" value="waffle11">
+                        <label for="waffle11">水波蛋花生鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle12" value="waffle12">
+                        <label for="waffle12">香蕉巧克力鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle13" value="waffle13">
+                        <label for="waffle13">芋頭煉乳鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle14" value="waffle14">
+                        <label for="waffle14">奶蓋鮮奶油鬆餅+草莓</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle15" value="waffle15">
+                        <label for="waffle15">奶蓋鮮奶油鬆餅+蜂蜜</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle16" value="waffle16">
+                        <label for="waffle16">奶蓋鮮奶油鬆餅+焦糖</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle17" value="waffle17">
+                        <label for="waffle17">奶蓋鮮奶油鬆餅+巧克力</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle18" value="waffle18">
+                        <label for="waffle18">奶蓋鮮奶油鬆餅+花生</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle19" value="waffle19">
+                        <label for="waffle19">奶蓋鮮奶油鬆餅+紅豆</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle20" value="waffle20">
+                        <label for="waffle20">冰淇淋鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle21" value="waffle21">
+                        <label for="waffle21">生菜沙拉鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle22" value="waffle22">
+                        <label for="waffle22">馬鈴薯沙拉鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle23" value="waffle23">
+                        <label for="waffle23">燻雞鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle24" value="waffle24">
+                        <label for="waffle24">燻肉鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle25" value="waffle25">
+                        <label for="waffle25">培根鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle26" value="waffle26">
+                        <label for="waffle26">魚排鬆餅</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="type" id="waffle27" value="waffle27">
+                        <label for="waffle27">雞排鬆餅</label>
+                    </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+
+</div>
+
+
+<div>
+    <button onclick="location.href='ordered.html'" class="button" type="submit">送出訂單</button>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+body{
+    background-color: #333;
+}
+
+#canvasContainer {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 65vh; /* 设置容器高度为视口高度 */
+}
+#buttonContainer {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+}
+
+.text {
+    padding-top: 20px; /* 根据需要调整顶部填充的值 */
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: transparent;
+    text-shadow: 0 0 10px #d2d1cd;
+    background: linear-gradient(to right, #dcdcdc0b, #DCDCDC);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: flow 5s infinite;
+  }
+  
+  @keyframes flow {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }

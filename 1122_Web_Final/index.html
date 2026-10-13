@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>select</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="static/css/index.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="static/js/index.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+		integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+<body>
+	<button onclick="location.href='demo/sales.html'" style="
+						top: -20px;
+						right: 20px;
+						position: absolute;
+						margin-top: 50px;
+						width: 150px;
+						background-color: #3B3B3B;
+						color: #ffffff;
+						padding: 15px 0;
+						font-size: 18px;
+						font-weight: 600;
+						border-radius: 5px;
+						cursor: pointer;">上月銷售量</button>
+	<div class="background">
+		<div class="shape"></div>
+		<div class="shape"></div>
+	</div>
+	<div class="left_di">
+		<h4>本月的公休時間:</h4>
+	</div>
+	<div class="chatbot">
+		<div id="chatbot-dialog">
+            <header>
+                <h3>餐廳AI助理</h3>
+            </header>
+            <main>
+                <section>
+                    <h4 id="userQuestionTitle" style="text-align: left">您的問題</h4> <!-- 使用 id 來選取 -->
+                </section>
+                <aside>
+                    <div id="responseBox"></div> <!-- AI回覆顯示區 -->
+                </aside>
+            </main>
+            <footer>
+                <form id="questionForm">
+                    <label for="question">請輸入問題:</label>
+                    <input type="text" id="question" name="question" required>
+                    <button type="submit">送出</button>
+                </form>
+            </footer>
+		</div>
+		<button id="chatbot-button"><i class='far fa-comment-dots'></i></button>
+	</div>
+	<form id="filter-form">
+		<div class="di">
+			<h1 style="text-align: center">A餐廳訂餐系統</h1>
+			&nbsp;&nbsp;
+			<h3>今天要吃什麼勒OWO</h3>
+			&nbsp;
+			<h4>我已經想好了:
+				<button onclick="location.href='demo/order.html'; return false" style="
+				margin-top: 5px;
+				width: 40%;
+				height: 40px;
+				background-color: #ffffff;
+				color: #080710;
+				padding: 0 0;
+				font-size: 18px;
+				font-weight: 600;
+				border-radius: 5px;
+				cursor: pointer;">直接點餐</button>
+			</h4>
+			<h4>食物類別:</h4>
+			<table>
+				<tr>
+					<td><input type="radio" id="ft_all" name="food_type[]" value="都可" checked="checked">
+						<label for="ft_all">都可</label>
+					</td>
+					<td><input type="radio" id="ft_1" name="food_type[]" value="套餐">
+						<label for="ft_1">套餐</label>
+					</td>
+					<td><input type="radio" id="ft_17" name="food_type[]" value="飯">
+						<label for="ft_17">飯類</label>
+                    </td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="ft_20" name="food_type[]" value="麵">
+						<label for="ft_20">麵類</label>
+					</td>
+					<td><input type="radio" id="ft_8" name="food_type[]" value="沙拉">
+						<label for="ft_8">沙拉</label>
+					</td>
+					<td><input type="radio" id="ft_4" name="food_type[]" value="吐司">
+						<label for="ft_4">吐司</label>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="radio" id="ft_19" name="food_type[]" value="鬆餅">
+						<label for="ft_19">鬆餅</label>
+					</td>
+					<td><input type="radio" id="ft_10" name="food_type[]" value="潛艇堡">
+						<label for="ft_10">潛艇堡</label>
+					</td>
+					<td><input type="radio" id="ft_2" name="food_type[]" value="三明治">
+						<label for="ft_2">三明治</label>
+					</td>
+				</tr>
+			</table>
+			<p>&emsp;</p>
+			<p>
+			<div>
+				<button id="filter-button"> 幫我選 </button>
+			</div>
+			</p>
+	</form>
+	<p>&emsp;</p>
+	<p>
+{#	<h4>結果:</h4>#}
+	</p>
+    <div id="result">
+        <table>
+            <tr>
+                <td style="width: 100px;">類別</td>
+                <td style="width: 330px;">名稱</td>
+                <td style="width: 100px;">價格</td>
+            </tr>
+            <tr>
+                <td style="width: 100px; height: 40px; font-size: 25px" id="result-food-type"></td>
+                <td style="width: 330px; height: 40px; font-size: 25px" id="result-food-name"></td>
+                <td style="width: 100px; height: 40px; font-size: 25px" id="result-food-price"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+		<button id="submit-button" type="button"> 送出訂單 </button>
+	</div>
+</body>
+
+</html>

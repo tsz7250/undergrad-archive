@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>sales</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sales.css') }}">
+</head>
+
+<body>
+    <div class="row">
+        <div class="column" id="button" style="width: 10%; height:100px">
+            <button onclick="location.href='/'" style="
+            top: -20px;
+            left: 20px;
+            position: relative;
+            margin-top: 50px;
+            width: 150px;
+            background-color: #3B3B3B;
+            color: #ffffff;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;">回到主頁</button>
+        </div>
+        <div class="column" id="category" style="width:45%;height:650px;">
+            <div id="categoryData" style="visibility: hidden;">{{categoryData}}</div>
+        </div>
+        <div class="column" id="product" style="width:45%;height:690px;">
+            <div id="productData" style="visibility: hidden;">{{productData}}</div>
+        </div>
+    </div>
+
+        <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+        <script src="{{ url_for('static', filename='js/sales.js') }}"></script>
+</body>
+
+</html>
