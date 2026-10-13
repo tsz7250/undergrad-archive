@@ -38,14 +38,31 @@ jobs:
           mkdir -p "$RUNNER_TEMP/source-repos"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c history-migration
-          git push origin history-migration
-          git branch backup/snapshot-before-history main
-          git push origin backup/snapshot-before-history
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*'
+          if git show-ref --verify --quiet refs/remotes/origin/history-migration; then
+            git switch -C history-migration origin/history-migration
+          else
+            git switch -c history-migration main
+            git push origin history-migration
+          fi
+          if ! git show-ref --verify --quiet refs/remotes/origin/backup/snapshot-before-history; then
+            git branch backup/snapshot-before-history main
+            git push origin backup/snapshot-before-history
+          fi
 
-          # Remove the previously imported snapshots on this migration branch.
+          # Remove old snapshots once, then resume safely from the migration branch.
           git rm -r --ignore-unmatch "${repos[@]}"
-          git commit -m "Prepare archive for original repository histories"
+          if ! git diff --cached --quiet; then
+            git commit -m "Prepare archive for original repository histories"
+          fi
+
+          push_ref() {
+            for attempt in 1 2 3 4 5; do
+              if git push origin "$1"; then return 0; fi
+              sleep $((attempt * 2))
+            done
+            return 1
+          }
 
           for repo in "${repos[@]}"; do
             git clone --bare "https://github.com/tsz7250/$repo.git" "$RUNNER_TEMP/source-repos/$repo.git"
@@ -53,14 +70,16 @@ jobs:
 
             while IFS= read -r ref; do
               branch="${ref#refs/source/$repo/}"
-              git push origin "$ref:refs/heads/archive/$repo/$branch"
+              push_ref "$ref:refs/heads/archive/$repo/$branch"
             done < <(git for-each-ref --format='%(refname)' "refs/source/$repo/")
 
             default_branch="$(git --git-dir="$RUNNER_TEMP/source-repos/$repo.git" symbolic-ref --short HEAD)"
             source_ref="refs/source/$repo/$default_branch"
-            git merge --no-commit --no-ff -s ours --allow-unrelated-histories "$source_ref"
-            git read-tree --prefix="$repo/" -u "$source_ref"
-            git commit -m "Import $repo history under $repo/"
+            if ! git cat-file -e "HEAD:$repo" 2>/dev/null; then
+              git merge --no-commit --no-ff -s ours --allow-unrelated-histories "$source_ref"
+              git read-tree --prefix="$repo/" -u "$source_ref"
+              git commit -m "Import $repo history under $repo/"
+            fi
 
             # Compare every tracked path, blob SHA, and file mode to the source default branch.
             git ls-tree -r -z "$source_ref" > "$RUNNER_TEMP/source.tree"
@@ -144,6 +163,6 @@ jobs:
           git rm .github/workflows/history-migration.yml
           git add README.md index.html
           git commit -m "Document archived histories and Pages sites"
-          git push origin HEAD:refs/heads/history-migration
+          push_ref "HEAD:refs/heads/history-migration"
           # Advance main only after every source tree passes comparison.
-          git push origin HEAD:refs/heads/main
+          push_ref "HEAD:refs/heads/main"
