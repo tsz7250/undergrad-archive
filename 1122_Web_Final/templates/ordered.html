@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>點餐</title>
+        <link rel="stylesheet" type="text/css" href="static/css/ordered.css">
+        <script src="{{ url_for('static', filename='js/order.js') }}"></script>
+    </head>
+    <body>
+        <div class="text">訂單已送出！</div>
+
+        <!--畫布-->
+        <div id="canvasContainer">
+            <canvas id="myCanvas" width="732" height="272"></canvas>
+        </div>
+
+{#        <script src="static/js/order.js"></script>#}
+        
+        <div id="buttonContainer">
+            <button onclick="location.href='/'" style="
+                width: 150px;
+                background-color: #3B3B3B;
+                color: #ffffff;
+                padding: 15px 0;
+                font-size: 18px;
+                font-weight: 600;
+                border-radius: 5px;
+                cursor: pointer;">回到主頁</button>
+        </div>
+        
+    </body>
+</html>
