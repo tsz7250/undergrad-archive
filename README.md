@@ -1,6 +1,6 @@
 # Undergrad Archive
 
-Archived snapshots of the undergraduate coursework and final-project repositories listed below. Each source repository is stored in its own directory, preserving its tracked files and paths.
+Undergraduate coursework and final-project repositories, consolidated with their original Git histories. Each repository's default branch is stored under its own directory; every source branch tip is preserved under an `archive/<repository>/<branch>` branch.
 
 | Source repository | Directory |
 | --- | --- |
@@ -17,4 +17,11 @@ Archived snapshots of the undergraduate coursework and final-project repositorie
 | [1111_WebProgramming_Final](https://github.com/tsz7250/1111_WebProgramming_Final) | `1111_WebProgramming_Final/` |
 | [1142_OpenPlatformSoftware_Final](https://github.com/tsz7250/1142_OpenPlatformSoftware_Final) | `1142_OpenPlatformSoftware_Final/` |
 
-Snapshots were taken from each repository's default branch. Source repositories remain unchanged.
+## GitHub Pages
+
+Static sites are published from these directories:
+- [1131 Chatbot Final](1131_Chatbot_Final/)
+- [1122 Web Final](1122_Web_Final/)
+- [1111 WebProgramming Final](1111_WebProgramming_Final/)
+
+GitHub Pages serves static files only. Flask APIs, PHP scripts, and other server-side features are not available.
