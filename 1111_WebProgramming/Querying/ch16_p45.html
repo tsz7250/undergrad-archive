@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>Sample JSON Query</title>
+      <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>	
+      <script>
+        function progress() {
+	    var dist = $("#dist").val();
+          dist = dist.toLowerCase();
+	    $.ajax({
+		url: "ch16_p45.php",
+		data: {
+		   dist: dist
+	        },
+		type: "POST",
+		datatype: "html",
+	        success: function( output ) {
+		   $( "#out" ).html(output);
+	        },
+		error : function(){
+		    alert( "Request failed." );
+		}
+	    });
+	}
+      </script>
+      <style type = "text/css">
+         body  { font-family: sans-serif;
+                 background-color: lightyellow; }
+         table { background-color: lightblue;
+                 border-collapse: collapse;
+                 border: 1px solid gray; }
+         td    { padding: 5px; }
+         tr:nth-child(odd) { background-color: white; }
+      </style>
+   </head>
+ <body>
+      <h1>停車場</h1>
+      <form method = "post" action = "#">
+         <p>地區:
+            <select id = "dist">
+               <option selected>中壢區</option>
+               <option>平鎮區</option>
+               <option>龍潭區</option>
+               <option>楊梅區</option>
+               <option>新屋區</option>
+               <option>觀音區</option>
+               <option>龜山區</option>
+			   <option>八德區</option>
+			   <option>大溪區</option>
+			   <option>復興區</option>
+			   <option>大園區</option>
+			   <option>蘆竹區</option>
+			   	   
+	   </select></p>
+         <p><input id = "submit" type="button" value = "Send Query" onclick="progress()"></p>
+      </form>
+      <div id="out"></div>
+   </body>
+</html>

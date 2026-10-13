@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset = "utf-8"><title>Line Charts</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Time');
+      data.addColumn('number', '西德州(USD/桶)');
+      data.addColumn('number', '杜拜(USD/桶)');
+      data.addColumn('number', '布籣特(USD/桶)');
+      var options = {
+        chart: {
+          title: ' Oil Price',
+        },
+        width: 1500,
+        height: 500,
+      };
+      var chart = new google.charts.Line(document.getElementById('out'));
+      $.ajax({
+		url: "week17_p28.php",
+		type: "POST",
+		datatype: "html",
+		success: function(output){
+			var line = output.split("\n");
+			var line_num = line.length;
+			for (var i=90;i>=1;i--){
+				var seq=line[i].split(",");
+				var time=seq[0];
+				var value1=parseInt(seq[1]);
+				var value2=parseInt(seq[2]);
+				var value3=parseInt(seq[3]);
+				data.addRows([[time,value1,value2,value3]]);
+			}
+			chart.draw(data,options);
+		},
+		error : function(){
+			alert("Request failed.");
+		}
+	})
+	}
+  </script>
+</head>
+<body>
+	<div id="out"></div></body>
+</html>
