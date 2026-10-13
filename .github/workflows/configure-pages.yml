@@ -1,0 +1,34 @@
+name: Configure archive GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/configure-pages.yml]
+
+permissions:
+  contents: write
+  pages: write
+  administration: write
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+      - name: Publish main root with GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          payload='{"build_type":"legacy","source":{"branch":"main","path":"/"}}'
+          if ! gh api --method POST "repos/$GITHUB_REPOSITORY/pages" --input - <<< "$payload"; then
+            gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" --input - <<< "$payload"
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/configure-pages.yml
+          git commit -m "Remove one-time Pages setup workflow"
+          git push origin HEAD:main
