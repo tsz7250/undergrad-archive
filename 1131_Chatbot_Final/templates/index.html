@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>電影AI助手</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="static/images/movie.png">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+    <h1> 電影AI助手 </h1>
+    <div class="current-mode" id="current-mode">目前模式: {{ chat_mode }}</div>
+    <div class="chat-buttons">
+        <button onclick="setChatMode('GEMINI')">聊天</button>
+        <button onclick="setChatMode('SEARCH_MOVIE')">查詢資料庫</button>
+        <button onclick="setChatMode('GUESS_MOVIE')">以圖搜尋</button>
+        <button onclick="setChatMode('SUB_TRANSLATE')">字幕翻譯</button>
+    </div>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="chat-input">
+        <label for="file-input" class="file-upload-label">
+            <img src="{{ url_for('static', filename='images/attachment.png') }}" alt="Upload">
+        </label>
+        <input type="file" id="file-input" style="display: none;" onchange="uploadFile()">
+        <textarea style="border-radius: 0px 0px 0px 0px;" id="chat-input" placeholder="輸入訊息..." 
+                    onkeydown="handleKeyDown(event)"></textarea>
+        <button onclick="sendMessage()">送出</button>
+    </div>
+    <div class="subtitles" id="subtitles" style="display: none;">
+        <form action="/translate_srt" method="POST" enctype="multipart/form-data">
+            <label for="file">選擇影片檔案：</label>
+            <input type="file" name="file" id="file" required><br><br>
+    
+            <label for="languages">選擇翻譯語言（可選擇多個語言，使用空格分隔）：</label><br>
+            <input type="text" name="languages" id="languages" required placeholder=""><br><br>
+    
+            <button type="submit">上傳並翻譯</button>
+        </form>
+    </div>
+</body>
+</html>

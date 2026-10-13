@@ -1,0 +1,141 @@
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:nth-child(2){
+    background: linear-gradient(
+        to right,
+        #FFFF00,
+        #ff512f
+    );
+    right: -300px;
+    bottom: 200px;
+}
+.shape:nth-child(3){
+    background: linear-gradient(
+        to right,
+        #7878FF,
+        #1845ad
+    );
+    left: -280px;
+    bottom: 100px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+.di{
+    height: 570px;
+    width: 1200px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.di h3{
+    left: 500px;
+	font-size: 45px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+.fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size:18px;
+  width: 200px;
+  background-color: #3B3B3B;
+  border-radius: 3px;
+  text-align:center;
+  color:#FFFF00;
+  font-size:25px;
+  vertical-align: center;
+}
+	.demo {
+		width: 1120px;
+		border:1px solid #000000;
+		border-collapse:collapse;
+		padding:5px;
+		vertical-align: middle
+	}
+	.demo th {
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		color:#03b2eb;
+	}
+	.demo td {
+		border:1px solid #000000;
+		padding:5px;
+	}
+	.fo{
+    width:300px;
+    text-align: center;
+	position:relative;
+	top:-27px;
+	right:-600px;
+	}
+
+button{
+    position: absolute;
+	bottom: 10px;
+	left: 500px;
+    width: 200px;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input{
+	font-size: 20px;
+	width: 200px;
+	height: 40px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>Sample XML Query</title>
+      <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>	
+      <script>
+        function progress() {
+	    var input = $("#sel").val();
+	    $.ajax({
+		url: "ch16_p36.php",
+		data: {
+		   sel: input
+	        },
+		type: "POST",
+		datatype: "html",
+	        success: function( output ) {
+		   $( "#out" ).html(output);
+	        },
+		error : function(){
+		    alert( "Request failed." );
+		}
+	    });
+	}
+      </script>
+      <style type = "text/css">
+         body  { font-family: sans-serif;
+                 background-color: lightyellow; }
+         table { background-color: lightblue;
+                 border-collapse: collapse;
+                 border: 1px solid gray; }
+         td    { padding: 5px; }
+         tr:nth-child(odd) { background-color: white; }
+      </style>
+   </head>
+ <body>
+      <h1>Station Facility</h1>
+      <form method = "post" action = "#">
+         <p>Select a station facility:
+            <select id = "sel">
+               <option selected>Elevators</option>
+               <option>InformationSpots</option>
+               <option>DrinkingFountains</option>
+               <option>Toilets</option>
+	   </select></p>
+         <p><input id = "submit" type="button" value = "Send Query" onclick="progress()"></p>
+      </form>
+      <div id="out"></div>
+   </body>
+</html>

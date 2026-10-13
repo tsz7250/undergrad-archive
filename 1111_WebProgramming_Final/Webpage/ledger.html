@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<title>記帳</title>
+		<link rel="stylesheet" href="ledger.css">
+	</head>
+	<body>
+	<div class="fixed" >
+		<p>總金額: 250</p>
+	</div>
+    <div class="background">
+        <div class="shape"></div>
+		<div class="shape"></div>
+    </div>
+	<div class="di">
+        <h3>帳本</h3>
+			<form method="POST" class="fo">
+					<input type="text" name="user" placeholder="須查詢的帳號" >
+			</form>
+
+		<table class="demo">
+			<thead>
+				<tr>
+					<th>帳號</th>
+					<th>餐廳</th>
+					<th>餐點</th>
+					<th>價格</th>
+					<th>時間</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td>student123</td>
+					<td>學生餐廳</td>
+					<td>炒飯</td>
+					<td>80</td>
+					<td>2024-12-15</td>
+				</tr>
+				<tr>
+					<td>student123</td>
+					<td>便利商店</td>
+					<td>便當</td>
+					<td>85</td>
+					<td>2024-12-14</td>
+				</tr>
+				<tr>
+					<td>student123</td>
+					<td>麵店</td>
+					<td>牛肉麵</td>
+					<td>85</td>
+					<td>2024-12-13</td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<button onclick="location.href='select.html'">回到主頁</button>
+		</div>
+		</div>
+	</body>
+</html>

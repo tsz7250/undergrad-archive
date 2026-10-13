@@ -1,0 +1,453 @@
+{
+  "rest_name": "卡利西里",
+  "rest_menu": [
+    {
+      "food_type_name": "套餐",
+      "food_type_menu": [
+        {
+          "food_name": "馬鈴薯沙拉鬆餅套餐",
+          "food_price": 97
+        },
+        {
+          "food_name": "燻雞沙拉鬆餅套餐",
+          "food_price": 103
+        },
+        {
+          "food_name": "原味燻雞堡套餐",
+          "food_price": 95
+        },
+        {
+          "food_name": "原味熱狗堡套餐",
+          "food_price": 100
+        },
+        {
+          "food_name": "卡拉嫩雞堡套餐",
+          "food_price": 105
+        },
+        {
+          "food_name": "原味魚排堡套餐",
+          "food_price": 105
+        },
+        {
+          "food_name": "培根義大利麵套餐",
+          "food_price": 112
+        },
+        {
+          "food_name": "培根義大利飯套餐",
+          "food_price": 112
+        },
+        {
+          "food_name": "燻雞義大利飯套餐",
+          "food_price": 117
+        },
+        {
+          "food_name": "燻雞義大利麵套餐",
+          "food_price": 117
+        },
+        {
+          "food_name": "魚排義大利麵套餐",
+          "food_price": 122
+        },
+        {
+          "food_name": "魚排義大利飯套餐",
+          "food_price": 122
+        },
+        {
+          "food_name": "蛤蜊義大利麵套餐",
+          "food_price": 122
+        },
+        {
+          "food_name": "蛤蜊義大利飯套餐",
+          "food_price": 122
+        },
+        {
+          "food_name": "蜂蜜鬆餅套餐",
+          "food_price": 98
+        },
+        {
+          "food_name": "花生鬆餅套餐",
+          "food_price": 98
+        },
+        {
+          "food_name": "抹茶紅豆鬆餅套餐",
+          "food_price": 103
+        },
+        {
+          "food_name": "香蕉巧克力鬆餅套餐",
+          "food_price": 103
+        }
+      ]
+    },
+    {
+      "food_type_name": "麵",
+      "food_type_menu": [
+        {
+          "food_name": "義大利麵",
+          "food_price": 60
+        },
+        {
+          "food_name": "田園培根麵",
+          "food_price": 69
+        },
+        {
+          "food_name": "德式燻肉麵",
+          "food_price": 75
+        },
+        {
+          "food_name": "紐澳良燻雞麵",
+          "food_price": 75
+        },
+        {
+          "food_name": "卡拉嫩雞麵",
+          "food_price": 80
+        },
+        {
+          "food_name": "冰島魚排麵",
+          "food_price": 80
+        },
+        {
+          "food_name": "蛤蠣麵",
+          "food_price": 80
+        },
+        {
+          "food_name": "脆皮雞排麵",
+          "food_price": 90
+        },
+        {
+          "food_name": "花枝麵",
+          "food_price": 90
+        },
+        {
+          "food_name": "燒肉麵",
+          "food_price": 90
+        },
+        {
+          "food_name": "燒肉便當",
+          "food_price": 80
+        },
+        {
+          "food_name": "椒麻雞胸麵",
+          "food_price": 100
+        },
+        {
+          "food_name": "椒麻雞胸便當",
+          "food_price": 90
+        }
+      ]
+    },
+    {
+      "food_type_name": "飯",
+      "food_type_menu": [
+        {
+          "food_name": "田園培根飯",
+          "food_price": 69
+        },
+        {
+          "food_name": "德式燻肉飯",
+          "food_price": 75
+        },
+        {
+          "food_name": "紐澳良燻雞飯",
+          "food_price": 75
+        },
+        {
+          "food_name": "卡拉嫩雞飯",
+          "food_price": 80
+        },
+        {
+          "food_name": "冰島魚排飯",
+          "food_price": 80
+        },
+        {
+          "food_name": "蛤蠣飯",
+          "food_price": 80
+        },
+        {
+          "food_name": "脆皮雞排飯",
+          "food_price": 90
+        },
+        {
+          "food_name": "花枝飯",
+          "food_price": 90
+        },
+        {
+          "food_name": "燒肉飯",
+          "food_price": 90
+        }
+      ]
+    },
+    {
+      "food_type_name": "潛艇堡",
+      "food_type_menu": [
+        {
+          "food_name": "原味香薯堡",
+          "food_price": 45
+        },
+        {
+          "food_name": "原味燻雞堡",
+          "food_price": 50
+        },
+        {
+          "food_name": "蜜燒燻雞堡",
+          "food_price": 60
+        },
+        {
+          "food_name": "辣味燻雞堡",
+          "food_price": 60
+        },
+        {
+          "food_name": "馬鈴薯沙拉堡(含蛋)",
+          "food_price": 45
+        },
+        {
+          "food_name": "野菜培根堡",
+          "food_price": 55
+        },
+        {
+          "food_name": "原味熱狗堡",
+          "food_price": 55
+        },
+        {
+          "food_name": "辣味熱狗堡",
+          "food_price": 62
+        },
+        {
+          "food_name": "蜜燒熱狗堡",
+          "food_price": 62
+        },
+        {
+          "food_name": "原味冰島魚排堡",
+          "food_price": 65
+        },
+        {
+          "food_name": "辣味冰島魚排堡",
+          "food_price": 65
+        },
+        {
+          "food_name": "蜜燒冰島魚排堡",
+          "food_price": 65
+        },
+        {
+          "food_name": "原味卡拉雞嫩堡",
+          "food_price": 65
+        },
+        {
+          "food_name": "辣味卡拉雞嫩堡",
+          "food_price": 65
+        },
+        {
+          "food_name": "蜜燒卡拉雞嫩堡",
+          "food_price": 65
+        },
+        {
+          "food_name": "原味脆皮雞排堡",
+          "food_price": 70
+        },
+        {
+          "food_name": "辣味脆皮雞排堡",
+          "food_price": 70
+        },
+        {
+          "food_name": "蜜燒脆皮雞排堡",
+          "food_price": 70
+        }
+      ]
+    },
+    {
+      "food_type_name": "吐司",
+      "food_type_menu": [
+        {
+          "food_name": "花生厚片",
+          "food_price": 25
+        },
+        {
+          "food_name": "奶酥厚片",
+          "food_price": 25
+        },
+        {
+          "food_name": "巧克力厚片",
+          "food_price": 25
+        },
+        {
+          "food_name": "香蒜厚片",
+          "food_price": 25
+        },
+        {
+          "food_name": "草莓厚片",
+          "food_price": 25
+        },
+        {
+          "food_name": "抹茶厚片",
+          "food_price": 25
+        },
+        {
+          "food_name": "芒果厚片",
+          "food_price": 25
+        },
+        {
+          "food_name": "培根焗烤厚片",
+          "food_price": 48
+        },
+        {
+          "food_name": "燻肉焗烤厚片",
+          "food_price": 48
+        },
+        {
+          "food_name": "燻雞焗烤厚片",
+          "food_price": 48
+        },
+        {
+          "food_name": "花生香蕉/焗烤厚片",
+          "food_price": 48
+        },
+        {
+          "food_name": "巧克力香蕉焗烤厚片",
+          "food_price": 48
+        }
+      ]
+    },
+    {
+      "food_type_name": "沙拉",
+      "food_type_menu": [
+        {
+          "food_name": "總匯沙拉(千島醬)",
+          "food_price": 40
+        },
+        {
+          "food_name": "椒麻雞胸肉沙拉",
+          "food_price": 60
+        }
+      ]
+    },
+    {
+      "food_type_name": "三明治",
+      "food_type_menu": [
+        {
+          "food_name": "馬鈴薯沙拉三明治",
+          "food_price": 30
+        },
+        {
+          "food_name": "燻雞沙拉三明治",
+          "food_price": 35
+        },
+        {
+          "food_name": "雞排九層塔三明治",
+          "food_price": 45
+        }
+      ]
+    },
+    {
+      "food_type_name": "鬆餅",
+      "food_type_menu": [
+        {
+          "food_name": "原味鬆餅",
+          "food_price": 38
+        },
+        {
+          "food_name": "蜂蜜鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "花生鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "草莓鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "焦糖鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "巧克力鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "抹茶鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "紅豆鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "奶酥鬆餅",
+          "food_price": 48
+        },
+        {
+          "food_name": "抹茶紅豆鬆餅",
+          "food_price": 58
+        },
+        {
+          "food_name": "水波蛋花生鬆餅",
+          "food_price": 58
+        },
+        {
+          "food_name": "香蕉巧克力鬆餅",
+          "food_price": 58
+        },
+        {
+          "food_name": "芋頭煉乳鬆餅",
+          "food_price": 58
+        },
+        {
+          "food_name": "奶蓋鮮奶油鬆餅+草莓",
+          "food_price": 58
+        },
+        {
+          "food_name": "奶蓋鮮奶油鬆餅+蜂蜜",
+          "food_price": 58
+        },
+        {
+          "food_name": "奶蓋鮮奶油鬆餅+焦糖",
+          "food_price": 58
+        },
+        {
+          "food_name": "奶蓋鮮奶油鬆餅+巧克力",
+          "food_price": 58
+        },
+        {
+          "food_name": "奶蓋鮮奶油鬆餅+花生",
+          "food_price": 58
+        },
+        {
+          "food_name": "奶蓋鮮奶油鬆餅+紅豆",
+          "food_price": 58
+        },
+        {
+          "food_name": "冰淇淋鬆餅",
+          "food_price": 72
+        },
+        {
+          "food_name": "生菜沙拉鬆餅",
+          "food_price": 45
+        },
+        {
+          "food_name": "馬鈴薯沙拉鬆餅",
+          "food_price": 53
+        },
+        {
+          "food_name": "燻雞鬆餅",
+          "food_price": 58
+        },
+        {
+          "food_name": "燻肉鬆餅",
+          "food_price": 58
+        },
+        {
+          "food_name": "培根鬆餅",
+          "food_price": 58
+        },
+        {
+          "food_name": "魚排鬆餅",
+          "food_price": 62
+        },
+        {
+          "food_name": "雞排鬆餅",
+          "food_price": 65
+        }
+      ]
+    }
+  ]
+}

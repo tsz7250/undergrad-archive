@@ -1,0 +1,212 @@
+body {
+    background-color: #343541; /* 深灰色 */
+    color: white; /* 白色文字 */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+h1 {
+    text-align: center; /* 置中標題 */
+    font-size: 4em; /* 調整字體大小 */
+}
+.current-mode {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.chat-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.chat-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #10a37f;
+    color: white;
+}
+.chat-buttons button:hover {
+    background-color: #0e8c6a;
+}
+.chat-box {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #444654;
+    color: white;
+    height: 400px;
+    overflow-y: scroll;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.chat-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+.chat-message.user {
+    background-color: #3e3f4b;
+    color: white;
+    text-align: left; /* 文字靠左 */
+    max-width: 60%; /* 限制最大寬度 */
+    width: fit-content; /* 根據內容自適應 */
+    margin-left: auto; /* 整體靠右 */
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word; /* 自動換行 */
+}
+.chat-message.bot {
+    background-color: transparent;
+    color: white;
+    text-align: left;
+}
+.chat-input {
+    width: 80%;
+    max-width: 800px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat-input input[type="text"] {
+    width: calc(100% - 64px); /* 減去圖示和按鈕的寬度 */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #3e3f4b;
+    color: white;
+    outline: none; /* 移除藍白邊 */
+    height: 44px; /* 與按鈕和圖示一致的高度 */
+    box-sizing: border-box; /* 確保 padding 不會影響高度 */
+}
+.chat-input textarea {
+    width: calc(100% - 64px); /* 減去圖示和按鈕的寬度 */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #3e3f4b;
+    color: white;
+    outline: none; /* 移除藍白邊 */
+    box-sizing: border-box; /* 確保 padding 不會影響高度 */
+    border-radius: 10px 0 0 10px; /* 圓角 */
+    resize: none; /* 禁止調整大小 */
+    overflow: hidden; /* 隱藏滾動條 */
+    min-height: 44px; /* 設定最小高度 */
+    font-family: Arial, sans-serif;
+}
+.chat-input button {
+    padding: 30px; /* 移除上下 padding，確保高度一致 */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    background-color: #10a37f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* 確保文字在同一行 */
+    height: 44px; /* 設定初始高度 */
+}
+.chat-input button:hover {
+    background-color: #0e8c6a;
+}
+.file-upload {
+    width: 80%;
+    max-width: 800px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+.file-upload input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    background-color: #3e3f4b;
+    color: white;
+    outline: none; /* 移除藍白邊 */
+}
+.file-upload button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    background-color: #10a37f;
+    color: white;
+}
+.file-upload button:hover {
+    background-color: #0e8c6a;
+}
+.file-upload-label {
+    cursor: pointer;
+    height: 60px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3e3f4b;
+    border-radius: 10px 0 0 10px;
+    padding: 0px 10px;
+    line-height: 60px;
+}
+.file-upload-label img {
+    width: 24px;
+    height: 24px;
+}
+
+.subtitles {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #444654;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.subtitles form {
+    width: 100%;
+}
+.subtitles label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.subtitles input[type="file"],
+.subtitles input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3e3f4b;
+    color: white;
+    outline: none; /* 移除藍白邊 */
+    margin-bottom: 10px;
+}
+.subtitles button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #10a37f;
+    color: white;
+}
+.subtitles button:hover {
+    background-color: #0e8c6a;
+}

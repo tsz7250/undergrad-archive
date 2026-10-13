@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問答系統</title>
+</head>
+<body>
+    <h1>問答系統</h1>
+    <form id="questionForm">
+        <label for="question">請輸入你的問題:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">送出</button>
+    </form>
+    <div id="responseBox"></div>
+    <div id="questionDisplay"></div>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>

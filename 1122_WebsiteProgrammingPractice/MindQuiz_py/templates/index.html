@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body style="text-align: center;">
+    <h1>你今年的愛情是什麼滋味？</h1>
+    <form action="/submit" method="post">
+        <div>
+            <h2 id="question">{{question}}</h2>
+            <div id="options">{{options | safe}}
+            </div>
+        </div>
+        <input id="startButton" type="submit" value="{{buttonText}}">
+    </form>
+</body>
+
+</html>

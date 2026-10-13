@@ -1,0 +1,40 @@
+Dynamic:
+               0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+Table =        A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  .  ,  !  ?  -  :  _
+Table2 =       C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  .  ,  !  ?  -  :  _  A  B  
+
+Rotor =     "  r  t  y  u  i  o  p  a  s  _  d  f  g  :  h  j  k  !  l  .  z  x  ,  c  v  -  b  n  m  ?  q  w  e ";
+Reflector = "  _  :  -  ?  !  ,  .  z  y  x  w  v  u  t  s  r  q  p  o  n  m  l  t  j  i  h  g  f  e  d  c  b  a ";
+
+Input:c
+Table "c" 會變成 Table2 "e" 
+Table2 "e" 對應Rotor "y"
+在Table2找"y",(也是Table "w",) 因此對應Reflector "k"
+在Table找"k" 會變成 Table2 "m"
+在Rotor找"m", 因此對應Table2 "-", 變為Table "!".
+
+----------------------------------------------------------------------------------------------------------------------------
+Static:
+             0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+Table =      A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  .  ,  !  ?  -  :  _
+Rotor =     "w  e  r  t  y  u  i  o  p  a  s  _  d  f  g  :  h  j  k  !  l  .  z  x  ,  c  v  -  b  n  m  ?  q ";
+Reflector = "_  :  -  ?  !  ,  .  z  y  x  w  v  u  t  s  r  q  p  o  n  m  l  k  j  i  h  g  f  e  d  c  b  a ";
+
+Input:   abcde
+Static:  sti?g
+Dynamic: sb!ys
+
+Input:   Hello World!
+Static:  kgjjv qvxj?p
+Dynamic: kgnix zd?-:b
+
+Input:   Lab-one-seven-zero-seven-b
+Static:  jstfvygfagogyf,gxvfagogyft
+Dynamic: j.a?xgp.qvnmodwnbrqkksl:c,
+
+
+Input: A
+n=Rotor[0]
+m=Reflector[n]
+Rotor[m]
+Output=S
