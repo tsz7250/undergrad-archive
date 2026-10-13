@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+		<title>LOG IN</title>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="login.css">
+		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+		
+		function register(){
+			var user = document.getElementById("username").value;
+			$.ajax({
+				url : "register.php",
+				data : { user : user},
+				type : "POST",
+				datatype : "html",
+				success: function(result){
+					if(result==1){
+						alert("此帳號已被使用");
+					}
+					else{
+						alert("完成註冊");
+					}
+				},
+				error : function(){
+					alert("沒料");
+				}
+			})
+		}
+		
+		
+		</script>
+	</head>
+	<body>
+	<div class="background">
+        <div class="shape"></div>
+		<div class="shape"></div>
+    </div>
+		<div class="login">
+			<h3>學餐選擇器</h3>
+			<label for="username">Username</label>
+				<input type="text" placeholder="username" id="username">
+			<p>
+			<button id="register" onclick="register()"> 註冊 </button>
+			<p>
+			<button id="login" onclick="location.href='select.html'"> 返回主頁 </button>
+		</div>
+	</body>
+	
+</html>
