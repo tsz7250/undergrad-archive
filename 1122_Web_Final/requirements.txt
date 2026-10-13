@@ -1,3 +1,0 @@
-flask
-langchain-google-genai
-pandas
